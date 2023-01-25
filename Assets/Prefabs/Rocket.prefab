@@ -4951,6 +4951,7 @@ GameObject:
   - component: {fileID: 811347163803452743}
   - component: {fileID: 153909625237349992}
   - component: {fileID: 8352389366077783478}
+  - component: {fileID: 7355818461884975632}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Player
@@ -5022,9 +5023,6 @@ MonoBehaviour:
   rotationDepth: 100
   mainEngine: {fileID: 8300000, guid: 36cf07d14192cbe46a662edd98dc9b58, type: 3}
   mainThrusterParticles: {fileID: 1514348960929651961}
-  FuelText: {fileID: 0}
-  decrementSpeed: 5
-  Fuel: 100
 --- !u!54 &811347163803452754
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5154,7 +5152,6 @@ MonoBehaviour:
   Finish: {fileID: 8300000, guid: 302dfdb4e6482da4f874c5be50f5184e, type: 3}
   crashParticles: {fileID: 57951650630813}
   finishParticles: {fileID: 3355727411756576349}
-  HealthText: {fileID: 0}
 --- !u!114 &153909625237349992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5179,6 +5176,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b664a19070618b444997e5e85e976113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7355818461884975632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147375815484249691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ded37726579eb9479e0770211e585e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuelText: {fileID: 0}
+  decrementSpeed: 0.5
+  fuel: 0
 --- !u!1 &1629486309210569564
 GameObject:
   m_ObjectHideFlags: 0

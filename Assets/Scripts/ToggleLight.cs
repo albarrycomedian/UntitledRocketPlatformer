@@ -9,19 +9,19 @@ public class ToggleLight : MonoBehaviour
     void Start()
     {
         light = GetComponent<Light>();
+        light.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        toggleLight();
+        LightHandler();
     }
-    private void toggleLight()
+    private void LightHandler()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             light.enabled = !light.enabled;
-            Debug.Log("The Light is On");
         } 
     }
 }
