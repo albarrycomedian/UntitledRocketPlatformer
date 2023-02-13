@@ -1,34 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CollisionHandler : MonoBehaviour
 {
 
     [SerializeField] float delayInSeconds = 2.0f;
-    [SerializeField] AudioClip Crash;
-    [SerializeField] AudioClip Finish;
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem finishParticles;
 
-
-    AudioSource audioSource;
+    LevelHandler levelHandler;
+    Movement movement;
     Rigidbody rb; 
+    RocketAudioProcessor rocketAudioProcessor;
+
     bool isTransitioning = false;
-   // [SerializeField] float health;
 
     void Start ()
     {
-        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
+        movement = GetComponent<Movement>();
+        levelHandler = GetComponent<LevelHandler>();
+        rocketAudioProcessor = GetComponent<RocketAudioProcessor>();
     }
 
-    void Update ()
-    {
-        
-    }
     private void OnCollisionEnter(Collision other) 
     {
         if (isTransitioning)
@@ -38,62 +34,42 @@ public class CollisionHandler : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Finish":
-                startNextLevelSequence();
-                break;
-            case "Fuel":
-                //Debug.Log("You picked up fuel!");
+                ProcessNextLevelSequence();
                 break;
             case "Friendly":
-                Debug.Log("I'm your friend. My name is Friendly");
                 break;
-            //case "Health":
-               // health = 100;
-               // break;
             default:
-                //startDamageSequence();
-                startCrashSequence();
+                ProcessCrashSequence();
                 break;
         }
-
-       // HealthText.text = "Shields: " + health.ToString("00") + "%"; 
     }
-    private void startCrashSequence()
+    private void ProcessCrashSequence()
     {
         isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(Crash);
+        movement.SetDisableMovementTrue();  
+        rocketAudioProcessor.playCrash();
+        rocketAudioProcessor.setDisableAudioTrue();
         crashParticles.Play();
-        Invoke(nameof(reloadLevel), delayInSeconds);
-        GetComponent<Movement>().enabled = false;     
+        Invoke(nameof(ReloadLevel), delayInSeconds);
     }
-   /* private void startDamageSequence()
-    {
-        health -= 25;
-    } */
     
-    private void startNextLevelSequence()
+    private void ProcessNextLevelSequence()
     {
         isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(Finish);
+        movement.SetDisableMovementTrue();
+        rocketAudioProcessor.playFinish();
+        rocketAudioProcessor.setDisableAudioTrue();
         finishParticles.Play();
-        Invoke(nameof(loadNextLevel), delayInSeconds);
-        GetComponent<Movement>().enabled = false;
-        
+        Invoke(nameof(LoadNextLevel), delayInSeconds);
     }
-    private void reloadLevel()
+
+    private void ReloadLevel()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        levelHandler.ReloadLevel();
     }
-    private void loadNextLevel()
-        {
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            int nextSceneIndex  = currentSceneIndex + 1;
-            if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
-            {
-                nextSceneIndex = 0; 
-            }
-            SceneManager.LoadScene(nextSceneIndex);
-        }
+
+    private void LoadNextLevel(){
+        levelHandler.LoadNextLevel();
+    }
+
 }

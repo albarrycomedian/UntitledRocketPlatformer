@@ -9,47 +9,44 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float mainThrust = 100.0f;
     [SerializeField] float rotationThrust = 100.0f;
-    [SerializeField] AudioClip mainEngine;
     [SerializeField] ParticleSystem mainThrusterParticles;
+
+    bool disableMovement;
     Rigidbody rb;
-    AudioSource audioSource;
 
     // Start is called before the first frame update
     private void Start(){
        rb = GetComponent<Rigidbody>();
-       audioSource = GetComponent<AudioSource>();
-       audioSource.Stop();
+       disableMovement = false;
     }
 
     // Update is called once per frame
     private void Update(){
-        ProcessThrust();
-        ProcessRotation();
+        if (!disableMovement){
+            ProcessThrust();
+            ProcessRotation();
+        } else {
+            StopThrusting();
+        }
     }
 
     private void ProcessThrust(){
         if (Input.GetKey(KeyCode.Space)){
-            startThrusting();
-        }
-        else{
-            stopThrusting();
+            StartThrusting();
+        } else{
+            StopThrusting();
         }
     }
 
-    private void startThrusting(){
+    private void StartThrusting(){
         rb.AddRelativeForce(Vector3.up * Time.deltaTime * mainThrust);
         if (!mainThrusterParticles.isPlaying)
         {
             mainThrusterParticles.Play();
         }
-        if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(mainEngine);
-        }
     }
 
-    private void stopThrusting(){
-        audioSource.Stop();
+    private void StopThrusting(){
         mainThrusterParticles.Stop();
     }
 
@@ -57,17 +54,17 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)){
             //Do Nothing, as they cancel eachother out
         } else if (Input.GetKey(KeyCode.A)){
-            rotateLeft();
+            RotateLeft();
         } else if (Input.GetKey(KeyCode.D)){
-            rotateRight();
+            RotateRight();
         }
     }
 
-    private void rotateLeft(){
+    private void RotateLeft(){
         ApplyRotationThrust(rotationThrust);
     }
 
-    private void rotateRight(){
+    private void RotateRight(){
         ApplyRotationThrust(-rotationThrust);
     }
 
@@ -75,6 +72,10 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true; //overrides physics system rotations
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationThrust);
         rb.freezeRotation = false;
+    }
+
+    public void SetDisableMovementTrue(){
+        disableMovement = true;
     }
 
 }
