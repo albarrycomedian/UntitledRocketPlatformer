@@ -31,9 +31,8 @@ public class FuelScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)){
             if (fuel > 0){
                 fuel -= decrementSpeed * Time.deltaTime;
-                GetComponent<Movement>().enabled = true;
             } else if (fuel <= 0){
-                GetComponent<Movement>().enabled = false;
+                GetComponent<Movement>().SetDisableMovementTrue();
             }
             //Debug.Log("You have this much fuel: " + Fuel);
             fuelText.text = "Fuel: " + fuel.ToString("00") + " %";

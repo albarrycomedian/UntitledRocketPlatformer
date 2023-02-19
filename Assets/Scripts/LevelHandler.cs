@@ -5,6 +5,16 @@ using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
 {
+    [SerializeField] float delayInSeconds = 2.0f;
+    [SerializeField] ParticleSystem crashParticles;
+    RocketAudioProcessor rocketAudioProcessor;
+    Movement movement;
+
+    private void Start(){
+        rocketAudioProcessor = GetComponent<RocketAudioProcessor>();
+        movement = GetComponent<Movement>();
+    }
+
     private void nextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
@@ -19,6 +29,19 @@ public class LevelHandler : MonoBehaviour
     private void Reload(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    private void CrashSequence(){
+        GetComponent<CollisionHandler>().SetIsTransitioningTrue();
+        movement.SetDisableMovementTrue();  
+        crashParticles.Play();
+        rocketAudioProcessor.playCrash();
+        rocketAudioProcessor.setDisableAudioTrue();
+        Invoke(nameof(ReloadLevel), delayInSeconds);
+    }
+
+    public void ProcessCrashSequence(){
+        CrashSequence();
     }
 
     public void LoadNextLevel(){

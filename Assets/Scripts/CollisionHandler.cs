@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class CollisionHandler : MonoBehaviour
 {
-
     [SerializeField] float delayInSeconds = 2.0f;
-    [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem finishParticles;
 
     LevelHandler levelHandler;
@@ -36,21 +34,9 @@ public class CollisionHandler : MonoBehaviour
             case "Finish":
                 ProcessNextLevelSequence();
                 break;
-            case "Friendly":
-                break;
             default:
-                ProcessCrashSequence();
                 break;
         }
-    }
-    private void ProcessCrashSequence()
-    {
-        isTransitioning = true;
-        movement.SetDisableMovementTrue();  
-        rocketAudioProcessor.playCrash();
-        rocketAudioProcessor.setDisableAudioTrue();
-        crashParticles.Play();
-        Invoke(nameof(ReloadLevel), delayInSeconds);
     }
     
     private void ProcessNextLevelSequence()
@@ -70,6 +56,14 @@ public class CollisionHandler : MonoBehaviour
 
     private void LoadNextLevel(){
         levelHandler.LoadNextLevel();
+    }
+
+    public void SetIsTransitioningTrue(){
+        isTransitioning = true;
+    }
+
+    public bool GetIsTransitioningTrue(){
+        return isTransitioning;
     }
 
 }
