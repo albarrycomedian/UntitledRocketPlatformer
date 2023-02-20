@@ -5148,8 +5148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e69ad6645154944a06d953536ee156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayInSeconds: 3
-  finishParticles: {fileID: 3355727411756576349}
 --- !u!114 &153909625237349992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5218,6 +5216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayInSeconds: 2
   crashParticles: {fileID: 57951650630813}
+  finishParticles: {fileID: 3355727411756576349}
 --- !u!114 &4467776342909408298
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class LevelHandler : MonoBehaviour
 {
     [SerializeField] float delayInSeconds = 2.0f;
     [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem finishParticles;
     RocketAudioProcessor rocketAudioProcessor;
     Movement movement;
 
@@ -38,6 +39,20 @@ public class LevelHandler : MonoBehaviour
         rocketAudioProcessor.playCrash();
         rocketAudioProcessor.setDisableAudioTrue();
         Invoke(nameof(ReloadLevel), delayInSeconds);
+    }
+
+    private void NextLevelSequence()
+    {
+        GetComponent<CollisionHandler>().SetIsTransitioningTrue();
+        movement.SetDisableMovementTrue();
+        rocketAudioProcessor.playFinish();
+        rocketAudioProcessor.setDisableAudioTrue();
+        finishParticles.Play();
+        Invoke(nameof(LoadNextLevel), delayInSeconds);
+    }
+
+    public void ProcessNextLevelSequence(){
+        NextLevelSequence();
     }
 
     public void ProcessCrashSequence(){

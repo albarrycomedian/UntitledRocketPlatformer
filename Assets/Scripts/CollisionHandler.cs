@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField] float delayInSeconds = 2.0f;
-    [SerializeField] ParticleSystem finishParticles;
-
     LevelHandler levelHandler;
     Movement movement;
     Rigidbody rb; 
@@ -32,30 +29,11 @@ public class CollisionHandler : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Finish":
-                ProcessNextLevelSequence();
+                levelHandler.ProcessNextLevelSequence();
                 break;
             default:
                 break;
         }
-    }
-    
-    private void ProcessNextLevelSequence()
-    {
-        isTransitioning = true;
-        movement.SetDisableMovementTrue();
-        rocketAudioProcessor.playFinish();
-        rocketAudioProcessor.setDisableAudioTrue();
-        finishParticles.Play();
-        Invoke(nameof(LoadNextLevel), delayInSeconds);
-    }
-
-    private void ReloadLevel()
-    {
-        levelHandler.ReloadLevel();
-    }
-
-    private void LoadNextLevel(){
-        levelHandler.LoadNextLevel();
     }
 
     public void SetIsTransitioningTrue(){

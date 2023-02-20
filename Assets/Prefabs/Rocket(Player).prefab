@@ -17,6 +17,11 @@ GameObject:
   - component: {fileID: 303476371}
   - component: {fileID: 675733524352404924}
   - component: {fileID: 8695287675881576034}
+  - component: {fileID: 2539386342679818471}
+  - component: {fileID: 8315944640243033748}
+  - component: {fileID: 7151640896024559753}
+  - component: {fileID: 3618052530189958159}
+  - component: {fileID: 9102232419384954979}
   m_Layer: 0
   m_Name: Rocket(Player)
   m_TagString: Player
@@ -80,12 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainThrust: 1000
   rotationThrust: 100
-  rotationDepth: 100
-  mainEngine: {fileID: 8300000, guid: 36cf07d14192cbe46a662edd98dc9b58, type: 3}
   mainThrusterParticles: {fileID: 2181562638182496045}
-  FuelText: {fileID: 0}
-  decrementSpeed: 5
-  Fuel: 100
 --- !u!54 &303476358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,11 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e69ad6645154944a06d953536ee156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayInSeconds: 2
-  Crash: {fileID: 8300000, guid: 4bb657e652629e042a815b861f10304e, type: 3}
-  Finish: {fileID: 8300000, guid: 302dfdb4e6482da4f874c5be50f5184e, type: 3}
-  crashParticles: {fileID: 811298047523612489}
-  finishParticles: {fileID: 2725675853133022601}
 --- !u!114 &675733524352404924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +234,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b664a19070618b444997e5e85e976113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2539386342679818471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337268370669845903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5531909c7d8914287cd968d89c09a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8315944640243033748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337268370669845903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2f58432128f3811bbf680f8647c344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crash: {fileID: 8300000, guid: 4bb657e652629e042a815b861f10304e, type: 3}
+  finish: {fileID: 8300000, guid: 302dfdb4e6482da4f874c5be50f5184e, type: 3}
+  mainEngine: {fileID: 8300000, guid: 36cf07d14192cbe46a662edd98dc9b58, type: 3}
+--- !u!114 &7151640896024559753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337268370669845903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108e0e8064954a8bc8fee7a0f36c91d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  health: 0
+--- !u!114 &3618052530189958159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337268370669845903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ded37726579eb9479e0770211e585e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuelText: {fileID: 0}
+  decrementSpeed: 0.5
+  fuel: 0
+--- !u!114 &9102232419384954979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337268370669845903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc248cb9495a7befd8d69a1780d77837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayInSeconds: 2
+  crashParticles: {fileID: 811298047523612489}
+  finishParticles: {fileID: 2725675853133022601}
 --- !u!1 &339900993751027935
 GameObject:
   m_ObjectHideFlags: 0
