@@ -4954,6 +4954,7 @@ GameObject:
   - component: {fileID: 7355818461884975632}
   - component: {fileID: 1139448633}
   - component: {fileID: 1139448634}
+  - component: {fileID: 4467776342909408298}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Player
@@ -5037,7 +5038,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!82 &811347163803452760
 AudioSource:
@@ -5147,9 +5148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e69ad6645154944a06d953536ee156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayInSeconds: 3
-  crashParticles: {fileID: 57951650630813}
-  finishParticles: {fileID: 3355727411756576349}
 --- !u!114 &153909625237349992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5216,6 +5214,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc248cb9495a7befd8d69a1780d77837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayInSeconds: 2
+  crashParticles: {fileID: 57951650630813}
+  finishParticles: {fileID: 3355727411756576349}
+--- !u!114 &4467776342909408298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147375815484249691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108e0e8064954a8bc8fee7a0f36c91d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  health: 100
 --- !u!1 &1629486309210569564
 GameObject:
   m_ObjectHideFlags: 0

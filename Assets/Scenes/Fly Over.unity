@@ -17044,6 +17044,17 @@ Transform:
   m_Father: {fileID: 204297362}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 180, y: -3.9049988, z: 0}
+--- !u!114 &876596347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1321694033, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
+  m_PrefabInstance: {fileID: 2837171232596369789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &877116069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41958,10 +41969,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 303476371, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
-      propertyPath: HealthText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 337268370669845903, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -42010,10 +42017,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9080539201324776700, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
-      propertyPath: FuelText
+    - target: {fileID: 3618052530189958159, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
+      propertyPath: fuelText
       value: 
       objectReference: {fileID: 316535237}
+    - target: {fileID: 3618052530189958159, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
+      propertyPath: decrementSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151640896024559753, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 876596347}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c4c2b8675a17c4685018d2cbef99a4, type: 3}
 --- !u!4 &1258131030605559583 stripped
@@ -42028,6 +42043,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1321694032, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 658
+      objectReference: {fileID: 0}
     - target: {fileID: 2837171233198878334, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
       propertyPath: m_Pivot.x
       value: 0

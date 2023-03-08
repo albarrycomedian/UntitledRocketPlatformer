@@ -8,6 +8,8 @@ TagManager:
   - Collision
   - Fuel
   - Health
+  - SmallHazard
+  - SmallHazardProjectile
   layers:
   - Default
   - TransparentFX
