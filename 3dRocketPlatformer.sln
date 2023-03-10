@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemachine", "Cinemachine.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Timeline", "Unity.Timeline.csproj", "{cd9ff254-7ca0-98e7-d746-c31fc9070ed0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core", "Unity.Services.Core.csproj", "{cf174bc6-62ce-2469-e97d-457f1c4f3a39}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1fe06de8-87e0-db6d-11c2-72b7c2a87009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core", "Unity.Services.Core.csproj", "{cf174bc6-62ce-2469-e97d-457f1c4f3a39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Environments", "Unity.Services.Core.Environments.csproj", "{4f483705-2dc6-da31-7329-142059c8309f}"
 EndProject
@@ -96,10 +96,10 @@ Global
 		{98eebcc4-7e9e-2c83-b5ff-e821c06b5205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{cd9ff254-7ca0-98e7-d746-c31fc9070ed0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{cd9ff254-7ca0-98e7-d746-c31fc9070ed0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{cf174bc6-62ce-2469-e97d-457f1c4f3a39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{cf174bc6-62ce-2469-e97d-457f1c4f3a39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1fe06de8-87e0-db6d-11c2-72b7c2a87009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1fe06de8-87e0-db6d-11c2-72b7c2a87009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{cf174bc6-62ce-2469-e97d-457f1c4f3a39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{cf174bc6-62ce-2469-e97d-457f1c4f3a39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4f483705-2dc6-da31-7329-142059c8309f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4f483705-2dc6-da31-7329-142059c8309f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2bb702f9-c455-e067-03b6-a22f9a2ac02d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

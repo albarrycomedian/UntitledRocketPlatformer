@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProjectileHazardScript : MonoBehaviour
 {
-    [SerializeField] float strengthOfAttraction = 5f;
-    [SerializeField] float pullRadius = 10f;
-    [SerializeField] GameObject playerRocket;
+    private float strengthOfAttraction = 10f;
+    private float pullRadius = 12f;
+    private GameObject playerRocket;
 
     Vector3 initialRocketPosition;
 
@@ -15,25 +16,25 @@ public class ProjectileHazardScript : MonoBehaviour
     void Start()
     {
         isMoving = false;
+        playerRocket = GameObject.Find("Rocket");
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position,pullRadius);
         
         foreach (var currentCollider in hitColliders)
         {
-            if (!isMoving){
+            if (isMoving){
+                GetComponent<Rigidbody>().AddForce(initialRocketPosition * strengthOfAttraction * Time.deltaTime);                
+            } else
                 if (currentCollider.tag == "Player")
                 {
                     initialRocketPosition = playerRocket.transform.position - transform.position;
                     GetComponent<Rigidbody>().AddForce(initialRocketPosition * strengthOfAttraction * Time.deltaTime);
                     isMoving = true;
                 } 
-            } else if (isMoving){
-                GetComponent<Rigidbody>().AddForce(initialRocketPosition * strengthOfAttraction * Time.deltaTime);
-            }
         }
     }
 }
