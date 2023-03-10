@@ -1,19 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ProjectileHazardScript : MonoBehaviour
 {
-    private float strengthOfAttraction = 10f;
-    private float pullRadius = 12f;
+    private const string PLAYER_TAG = "Player";
+    private float newtonsApplied = 10000f;
+    private float detectionRadius = 12f;
     private GameObject playerRocket;
-
-    Vector3 initialRocketPosition;
-
     bool isMoving;
-
-    void Start()
+    private void Start()
     {
         isMoving = false;
         playerRocket = GameObject.Find("Rocket");
@@ -22,19 +18,21 @@ public class ProjectileHazardScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position,pullRadius);
+        Vector3 targetVector;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position,detectionRadius);
         
         foreach (var currentCollider in hitColliders)
         {
             if (isMoving){
-                GetComponent<Rigidbody>().AddForce(initialRocketPosition * strengthOfAttraction * Time.deltaTime);                
-            } else
-                if (currentCollider.tag == "Player")
+                //GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied * Time.deltaTime);                
+            } else{
+                if (currentCollider.tag == PLAYER_TAG)
                 {
-                    initialRocketPosition = playerRocket.transform.position - transform.position;
-                    GetComponent<Rigidbody>().AddForce(initialRocketPosition * strengthOfAttraction * Time.deltaTime);
+                    targetVector = playerRocket.transform.position - transform.position;
+                    GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied * Time.deltaTime);
                     isMoving = true;
                 } 
+            }
         }
     }
 }
