@@ -9,15 +9,17 @@ public class HealthScript : MonoBehaviour
     [SerializeField] public Text healthText;  
     [SerializeField] int health;
     private const string NO_HEALTH = "0";
-
-    LevelHandler levelHandler;
+    
+    GameObject canvas;
+    LivesScript livesScript;
 
     // Start is called before the first frame update
     void Start()
     {
         health = 100;
-        GetHealthString(health.ToString());
-        levelHandler = GetComponent<LevelHandler>();
+        healthText.text = GetHealthString(health.ToString());
+        canvas = GameObject.Find("Canvas");
+        livesScript = canvas.GetComponent<LivesScript>();
     }
 
     private void OnCollisionEnter(Collision other){
@@ -29,29 +31,29 @@ public class HealthScript : MonoBehaviour
                 health -= 10;
                 if(health <= 0){
                     healthText.text = GetHealthString(NO_HEALTH);
-                    levelHandler.ProcessCrashSequence();
-
-                    //TODO: Deduct Life
+                    livesScript.oneDown();
                 } else{
                     healthText.text = GetHealthString(health.ToString());
                 }
                 break;
             case "LargeHazard":
                 healthText.text = GetHealthString(NO_HEALTH);
-                levelHandler.ProcessCrashSequence();
-
-                //TODO: Deduct Life
+                livesScript.oneDown();
+                break;
+            case "Health":
+                health = 100;
+                healthText.text = GetHealthString(health.ToString());
                 break;
             case "Friendly":
                 break;
             case "Finish":
                 break;
+            case "Fuel":
+                break;
             default:
                 health = 0;
                 healthText.text = GetHealthString(health.ToString());
-                levelHandler.ProcessCrashSequence();
-
-                //TODO: Deduct Life
+                livesScript.oneDown();
                 break;
         }
     }

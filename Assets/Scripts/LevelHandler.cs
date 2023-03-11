@@ -8,17 +8,26 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] float delayInSeconds = 2.0f;
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem finishParticles;
+    GameObject canvas;
+    LivesScript livesScript;
     RocketAudioProcessor rocketAudioProcessor;
     Movement movement;
 
     private void Start(){
         rocketAudioProcessor = GetComponent<RocketAudioProcessor>();
+        canvas = GameObject.Find("Canvas");
+        livesScript = canvas.GetComponent<LivesScript>();
         movement = GetComponent<Movement>();
     }
 
     private void nextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
+        var state = new GameObject("State");
+        var setState = state.AddComponent<LifeState>();
+
+        setState.setLives(livesScript.getLives());
+        DontDestroyOnLoad(state);
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings){
             nextSceneIndex = 0; 

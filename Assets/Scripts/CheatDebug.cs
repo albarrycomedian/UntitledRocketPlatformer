@@ -7,33 +7,35 @@ public class CheatDebug : MonoBehaviour
 {
 
     BoxCollider boxCollider;
-    void Start()
-    {
+    LevelHandler LevelHandler;
+
+    private void Start(){
+        LevelHandler = GetComponent<LevelHandler>();
         boxCollider = GetComponent<BoxCollider>();
     }
-    void Update()
+
+    private void Update()
     {
         cheatNextLevel();
         toggleCollisions();
     }
-     private void cheatNextLevel()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            int nextSceneIndex = currentSceneIndex + 1;
-            if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
-            {
-                nextSceneIndex = 0;
-            }
-            SceneManager.LoadScene(nextSceneIndex);
+
+     private void cheatNextLevel(){
+        if(Input.GetKeyDown(KeyCode.L)){
+            LevelHandler.LoadNextLevel();
         }
     }
-     private void toggleCollisions()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+
+     private void toggleCollisions(){
+        if(Input.GetKeyDown(KeyCode.C)){
             boxCollider.enabled = !boxCollider.enabled;
+            for(int i = 0; i < transform.childCount; i++){
+                if(transform.GetChild(i).GetComponent<BoxCollider>() != null){
+                    transform.GetChild(i).GetComponent<BoxCollider>().enabled = false;
+                } else if(transform.GetChild(i).GetComponent<CapsuleCollider>() != null){
+                    transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = false;
+                }
+            }
         } 
     }
 }
