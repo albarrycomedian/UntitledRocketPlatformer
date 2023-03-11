@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileHazardScript : MonoBehaviour
 {
     private const string PLAYER_TAG = "Player";
-    private float newtonsApplied = 15f;
+    private float newtonsApplied = 50f;
     private float detectionRadius = 12f;
     private GameObject playerRocket;
     bool isMoving;
