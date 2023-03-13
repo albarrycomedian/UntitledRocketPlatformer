@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float mainThrust = 100.0f;
-    [SerializeField] float rotationThrust = 100.0f;
-    [SerializeField] ParticleSystem mainThrusterParticles;
+    private float mainThrust = 1000.0f;
+    private float rotationThrust = 100.0f;
 
-    bool disableMovement;
-    Rigidbody rb;
+    private bool disableMovement;
+    private Rigidbody rb;
+
+    [SerializeField] ParticleSystem mainThrusterParticles;
 
     // Start is called before the first frame update
     private void Start(){

@@ -9,13 +9,12 @@ public class LivesScript : MonoBehaviour
     private int lives;
     private Text livesText;  
 
-    GameObject rocket;
-    GameObject livesTextObject;
-    LevelHandler levelHandler;
+    private GameObject rocket;
+    private GameObject livesTextObject;
+    private LevelHandler levelHandler;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start(){
         livesTextObject = GameObject.Find("LivesText");
         livesText = livesTextObject.GetComponent<Text>(); 
         rocket = GameObject.Find("Rocket");

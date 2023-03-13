@@ -171,7 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &877646
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -283,7 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &16221768
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1177,7 +1175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &193580398
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1569,7 +1566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: -30, z: 0}
-  period: 5
 --- !u!65 &220761749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2101,7 +2097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &344516067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2353,7 +2348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &384454876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2702,7 +2696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &443803084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2814,7 +2807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &487801337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3163,7 +3155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &515711081
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3275,7 +3266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &526320506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3387,7 +3377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &554866998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3499,7 +3488,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &564951609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3751,7 +3739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &583673451
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3863,7 +3850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &593826945
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3975,7 +3961,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &647733561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4087,7 +4072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &668561545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4199,7 +4183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &697821070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4405,7 +4388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &707906225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4524,14 +4506,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
-    - target: {fileID: 4467776342909408298, guid: 08536deefea118c45a94b80061bfe3ab, type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 1321694033}
-    - target: {fileID: 7355818461884975632, guid: 08536deefea118c45a94b80061bfe3ab, type: 3}
-      propertyPath: fuelText
-      value: 
-      objectReference: {fileID: 972692325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08536deefea118c45a94b80061bfe3ab, type: 3}
 --- !u!4 &735791823 stripped
@@ -4924,7 +4898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &793314969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5230,7 +5203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &848609469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5342,7 +5314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 30, z: 0}
-  period: 5
 --- !u!65 &857477820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5454,7 +5425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &859371513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5663,7 +5633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &905110107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5943,17 +5912,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
---- !u!114 &972692325 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2837171232347050168, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
-  m_PrefabInstance: {fileID: 972692324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1027412416
 GameObject:
   m_ObjectHideFlags: 0
@@ -6002,7 +5960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &1027412419
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6503,7 +6460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 30, z: 0}
-  period: 5
 --- !u!65 &1099313085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6615,7 +6571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &1110629364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6867,7 +6822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: -30, z: 0}
-  period: 5
 --- !u!65 &1125584545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6979,7 +6933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1161721736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7091,7 +7044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1162934548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7795,7 +7747,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1318832865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7859,17 +7810,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318832862}
   m_Mesh: {fileID: 4300012, guid: f51c499c357104c44a3966cef0c5672c, type: 3}
---- !u!114 &1321694033 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1321694033, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
-  m_PrefabInstance: {fileID: 972692324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1342370285
 GameObject:
   m_ObjectHideFlags: 0
@@ -8115,7 +8055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &1403243626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8227,7 +8166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1421359895
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8339,7 +8277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1435575437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8417,7 +8354,7 @@ GameObject:
   - component: {fileID: 1487023601}
   m_Layer: 0
   m_Name: LaunchPad
-  m_TagString: Friendly
+  m_TagString: LaunchPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8742,7 +8679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &1617031224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8854,7 +8790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 30, z: 0}
-  period: 5
 --- !u!65 &1621139110
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8931,7 +8866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!1 &1733131436
 GameObject:
   m_ObjectHideFlags: 0
@@ -8980,7 +8914,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &1733131439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9244,7 +9177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1798098598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9356,7 +9288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &1816117493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9468,7 +9399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &1861688618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10000,7 +9930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 10}
-  period: 5
 --- !u!65 &2030030968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10392,7 +10321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: -10}
-  period: 5
 --- !u!65 &2108574750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11578,7 +11506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: -30, z: 0}
-  period: 5
 --- !u!114 &6826953136535716705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11592,7 +11519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 50}
-  period: 5
 --- !u!23 &6826953136535716773
 MeshRenderer:
   m_ObjectHideFlags: 0

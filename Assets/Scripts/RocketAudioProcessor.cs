@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class RocketAudioProcessor : MonoBehaviour
 {
+    private AudioSource rocketAudio;
+    private bool disableAudio;
+
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip finish;
     [SerializeField] AudioClip mainEngine;
-
-    AudioSource rocketAudio;
-    bool disableAudio;
+    
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start(){
         rocketAudio = GetComponent<AudioSource>();
         rocketAudio.Stop();
         disableAudio = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    private void Update(){
         if (!disableAudio){
             processAudio();
         }

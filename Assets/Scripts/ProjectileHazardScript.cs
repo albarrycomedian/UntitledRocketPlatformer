@@ -8,24 +8,21 @@ public class ProjectileHazardScript : MonoBehaviour
     private float newtonsApplied = 15f;
     private float detectionRadius = 12f;
     private GameObject playerRocket;
-    bool isMoving;
-    private void Start()
-    {
+    private bool isMoving;
+    
+    private void Start(){
         isMoving = false;
         playerRocket = GameObject.Find("Rocket");
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update(){
         Vector3 targetVector;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position,detectionRadius);
         
         foreach (var currentCollider in hitColliders)
         {
-            if (isMoving){
-                //GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied * Time.deltaTime);                
-            } else{
+            if (!isMoving){
                 if (currentCollider.tag == PLAYER_TAG)
                 {
                     targetVector = playerRocket.transform.position - transform.position;

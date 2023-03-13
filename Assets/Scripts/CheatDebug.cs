@@ -5,17 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CheatDebug : MonoBehaviour
 {
-
-    BoxCollider boxCollider;
-    LevelHandler LevelHandler;
+    private BoxCollider boxCollider;
+    private LevelHandler LevelHandler;
 
     private void Start(){
         LevelHandler = GetComponent<LevelHandler>();
         boxCollider = GetComponent<BoxCollider>();
     }
 
-    private void Update()
-    {
+    private void Update() {
         cheatNextLevel();
         toggleCollisions();
     }
@@ -29,13 +27,17 @@ public class CheatDebug : MonoBehaviour
      private void toggleCollisions(){
         if(Input.GetKeyDown(KeyCode.C)){
             boxCollider.enabled = !boxCollider.enabled;
-            for(int i = 0; i < transform.childCount; i++){
-                if(transform.GetChild(i).GetComponent<BoxCollider>() != null){
-                    transform.GetChild(i).GetComponent<BoxCollider>().enabled = false;
-                } else if(transform.GetChild(i).GetComponent<CapsuleCollider>() != null){
-                    transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = false;
-                }
-            }
+            disableColliders();
         } 
+    }
+
+    private void disableColliders(){
+         for(int i = 0; i < transform.childCount; i++){
+            if(transform.GetChild(i).GetComponent<BoxCollider>() != null){
+                transform.GetChild(i).GetComponent<BoxCollider>().enabled = false;
+            } else if(transform.GetChild(i).GetComponent<CapsuleCollider>() != null){
+                transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = false;
+            }
+        }
     }
 }
