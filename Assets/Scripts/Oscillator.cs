@@ -5,21 +5,20 @@ using UnityEngine;
 public class Oscillator : MonoBehaviour
 {
 
-    Vector3 startingPosition;
-    Vector3 rotatingPosition;
+    private Vector3 startingPosition;
+    private Vector3 rotatingPosition;
+    private float movementFactor;
+    private float period = 4f;
+
     [SerializeField] Vector3 movementVector;
-    float movementFactor;
-    [SerializeField] float period = 2f;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start(){
         startingPosition = transform.position;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    private void Update(){
         if (period <= Mathf.Epsilon) 
         { 
             return; 

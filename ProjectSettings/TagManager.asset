@@ -9,6 +9,7 @@ TagManager:
   - Fuel
   - Health
   - SmallHazard
+  - LaunchPad
   layers:
   - Default
   - TransparentFX

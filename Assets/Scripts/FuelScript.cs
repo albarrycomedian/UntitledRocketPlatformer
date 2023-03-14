@@ -6,25 +6,26 @@ using UnityEngine.UI;
 
 public class FuelScript : MonoBehaviour
 {
-    [SerializeField] public Text fuelText;  
-    [SerializeField] float decrementSpeed = .5f;
-    [SerializeField] float fuel;  
+    private GameObject fueltTextObject;
+    private GameObject rocket;
+    private Text fuelText;  
+    private float decrementSpeed = .5f;
+    private float fuel;  
+
+    private const string ROCKET_TAG = "Player";
+    private const string FUEL_TEXT = "FuelText";
 
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start(){
         fuel = 100;
+        fueltTextObject = GameObject.Find(FUEL_TEXT);
+        rocket = GameObject.FindWithTag(ROCKET_TAG);
+        fuelText = fueltTextObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
-    void Update(){
+    private void Update(){
         ProcessFuel();
-    }
-
-    private void OnCollisionEnter(Collision other){
-        if (other.gameObject.tag == "Fuel"){
-                fuel = 100;
-        }
     }
 
     private void ProcessFuel(){        
@@ -32,10 +33,14 @@ public class FuelScript : MonoBehaviour
             if (fuel > 0){
                 fuel -= decrementSpeed * Time.deltaTime;
             } else if (fuel <= 0){
-                GetComponent<Movement>().SetDisableMovementTrue();
+                rocket.GetComponent<Movement>().SetDisableMovementTrue();
             }
             //Debug.Log("You have this much fuel: " + Fuel);
             fuelText.text = "Fuel: " + fuel.ToString("00") + " %";
         }
+    }
+
+    public void Refuel(){
+        fuel = 100;
     }
 }

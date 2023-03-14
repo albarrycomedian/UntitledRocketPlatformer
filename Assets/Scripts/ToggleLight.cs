@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ToggleLight : MonoBehaviour
 {
+    GameObject lightObject;
     Light rocketLight;
     // Start is called before the first frame update
-    void Start()
-    {
-        rocketLight = GetComponent<Light>();
+    void Start(){
+        lightObject = GameObject.Find("SpotLight");
+        rocketLight = lightObject.GetComponent<Light>();
         rocketLight.enabled = false;
     }
 

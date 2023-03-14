@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class ProjectileHazardScript : MonoBehaviour
 {
-    private const string PLAYER_TAG = "Player";
-    private float newtonsApplied = 50f;
+    private float newtonsApplied = 15f;
     private float detectionRadius = 12f;
-    private GameObject playerRocket;
-    bool isMoving;
-    private void Start()
-    {
+    private GameObject rocket;
+    private bool isMoving;
+
+    private const string ROCKET_TAG = "Player";
+    
+    private void Start(){
         isMoving = false;
-        playerRocket = GameObject.Find("Rocket");
+        rocket = GameObject.FindWithTag(ROCKET_TAG);
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update(){
         Vector3 targetVector;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position,detectionRadius);
         
         foreach (var currentCollider in hitColliders)
         {
-            if (isMoving){
-                //GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied * Time.deltaTime);                
-            } else{
-                if (currentCollider.tag == PLAYER_TAG)
+            if (!isMoving){
+                if (currentCollider.tag == ROCKET_TAG)
                 {
-                    targetVector = playerRocket.transform.position - transform.position;
+                    targetVector = rocket.transform.position - transform.position;
                     GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied * Time.deltaTime);
                     isMoving = true;
                 } 

@@ -5,37 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class CheatDebug : MonoBehaviour
 {
+    private BoxCollider boxCollider;
+    private LevelHandler levelHandler;
+    private GameObject canvas;
 
-    BoxCollider boxCollider;
-    LevelHandler LevelHandler;
+    private const string CANVAS_NAME = "Canvas";
 
     private void Start(){
-        LevelHandler = GetComponent<LevelHandler>();
+        canvas = GameObject.Find(CANVAS_NAME);
+        levelHandler = canvas.GetComponent<LevelHandler>();
         boxCollider = GetComponent<BoxCollider>();
     }
 
-    private void Update()
-    {
+    private void Update() {
         cheatNextLevel();
         toggleCollisions();
     }
 
      private void cheatNextLevel(){
         if(Input.GetKeyDown(KeyCode.L)){
-            LevelHandler.LoadNextLevel();
+            levelHandler.LoadNextLevel();
         }
     }
 
      private void toggleCollisions(){
         if(Input.GetKeyDown(KeyCode.C)){
             boxCollider.enabled = !boxCollider.enabled;
-            for(int i = 0; i < transform.childCount; i++){
-                if(transform.GetChild(i).GetComponent<BoxCollider>() != null){
-                    transform.GetChild(i).GetComponent<BoxCollider>().enabled = false;
-                } else if(transform.GetChild(i).GetComponent<CapsuleCollider>() != null){
-                    transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = false;
-                }
-            }
+            disableColliders();
         } 
+    }
+
+    private void disableColliders(){
+         for(int i = 0; i < transform.childCount; i++){
+            if(transform.GetChild(i).GetComponent<BoxCollider>() != null){
+                transform.GetChild(i).GetComponent<BoxCollider>().enabled = false;
+            } else if(transform.GetChild(i).GetComponent<CapsuleCollider>() != null){
+                transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = false;
+            }
+        }
     }
 }
