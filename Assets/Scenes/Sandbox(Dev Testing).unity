@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571343, b: 0.30692208, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -581,6 +581,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 105737998195255821, guid: 08536deefea118c45a94b80061bfe3ab, type: 3}
   m_PrefabInstance: {fileID: 782544403}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &782544405 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 57951650630813, guid: 08536deefea118c45a94b80061bfe3ab, type: 3}
+  m_PrefabInstance: {fileID: 782544403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &782544406 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3355727411756576349, guid: 08536deefea118c45a94b80061bfe3ab, type: 3}
+  m_PrefabInstance: {fileID: 782544403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &855321724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,6 +826,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1883678491220043823, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
+      propertyPath: crashParticles
+      value: 
+      objectReference: {fileID: 782544405}
+    - target: {fileID: 1883678491220043823, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
+      propertyPath: finishParticles
+      value: 
+      objectReference: {fileID: 782544406}
     - target: {fileID: 2837171233198878334, guid: fefa0d22d959a624a832dbe54001d272, type: 3}
       propertyPath: m_Pivot.x
       value: 0
