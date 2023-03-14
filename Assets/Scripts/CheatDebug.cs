@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class CheatDebug : MonoBehaviour
 {
     private BoxCollider boxCollider;
-    private LevelHandler LevelHandler;
+    private LevelHandler levelHandler;
+    private GameObject canvas;
+
+    private const string CANVAS_NAME = "Canvas";
 
     private void Start(){
-        LevelHandler = GetComponent<LevelHandler>();
+        canvas = GameObject.Find(CANVAS_NAME);
+        levelHandler = canvas.GetComponent<LevelHandler>();
         boxCollider = GetComponent<BoxCollider>();
     }
 
@@ -20,7 +24,7 @@ public class CheatDebug : MonoBehaviour
 
      private void cheatNextLevel(){
         if(Input.GetKeyDown(KeyCode.L)){
-            LevelHandler.LoadNextLevel();
+            levelHandler.LoadNextLevel();
         }
     }
 

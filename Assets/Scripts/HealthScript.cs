@@ -9,6 +9,8 @@ public class HealthScript : MonoBehaviour
     private Text healthText;  
     private int health;
     private const string NO_HEALTH = "0";
+    private const string CANVAS_NAME = "Canvas";
+    private const string HEALTH_TEXT = "HealthText";
     
     private GameObject canvas;
     private GameObject healthTextObject;
@@ -17,9 +19,9 @@ public class HealthScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start(){
         health = 100;
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find(CANVAS_NAME);
         livesScript = canvas.GetComponent<LivesScript>();
-        healthTextObject = GameObject.Find("HealthText");
+        healthTextObject = GameObject.Find(HEALTH_TEXT);
         healthText = healthTextObject.GetComponent<Text>();
         healthText.text = GetHealthString(health.ToString());
     }

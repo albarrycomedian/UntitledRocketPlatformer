@@ -12,11 +12,14 @@ public class FuelScript : MonoBehaviour
     private float decrementSpeed = .5f;
     private float fuel;  
 
+    private const string ROCKET_TAG = "Player";
+    private const string FUEL_TEXT = "FuelText";
+
     // Start is called before the first frame update
     private void Start(){
         fuel = 100;
-        fueltTextObject = GameObject.Find("FuelText");
-        rocket = GameObject.Find("Rocket");
+        fueltTextObject = GameObject.Find(FUEL_TEXT);
+        rocket = GameObject.FindWithTag(ROCKET_TAG);
         fuelText = fueltTextObject.GetComponent<Text>();
     }
 

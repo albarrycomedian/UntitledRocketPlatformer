@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 8695287675881576034}
   - component: {fileID: 2539386342679818471}
   - component: {fileID: 8315944640243033748}
-  - component: {fileID: 9102232419384954979}
   m_Layer: 0
   m_Name: Rocket(Player)
   m_TagString: Player
@@ -261,20 +260,6 @@ MonoBehaviour:
   crash: {fileID: 8300000, guid: 4bb657e652629e042a815b861f10304e, type: 3}
   finish: {fileID: 8300000, guid: 302dfdb4e6482da4f874c5be50f5184e, type: 3}
   mainEngine: {fileID: 8300000, guid: 36cf07d14192cbe46a662edd98dc9b58, type: 3}
---- !u!114 &9102232419384954979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337268370669845903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc248cb9495a7befd8d69a1780d77837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crashParticles: {fileID: 811298047523612489}
-  finishParticles: {fileID: 2725675853133022601}
 --- !u!1 &339900993751027935
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,8 +756,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.028685726, y: 0.024846083, z: 0.03468472}
-  m_Center: {x: -0.0043431004, y: 0.0030763575, z: -0.007105473}
+  m_Size: {x: 0.028685728, y: 0.024846084, z: 0.023344677}
+  m_Center: {x: -0.0051370044, y: 0.0026651183, z: -0.00071125175}
 --- !u!1 &5521226463490512576
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,8 +950,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.028685723, y: 0.024846066, z: 0.03468471}
-  m_Center: {x: -0.004342623, y: 0.0030763552, z: -0.007105411}
+  m_Size: {x: 0.028685723, y: 0.024846066, z: 0.022397812}
+  m_Center: {x: -0.0052027293, y: 0.0029243939, z: -0.0001790608}
 --- !u!1001 &685221608089905545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,11 +1024,6 @@ PrefabInstance:
 --- !u!4 &688389086523614867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4436899185823514, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
-  m_PrefabInstance: {fileID: 685221608089905545}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &811298047523612489 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198204746014789312, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
   m_PrefabInstance: {fileID: 685221608089905545}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2087906768641661521
@@ -1194,11 +1174,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
---- !u!198 &2725675853133022601 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198631066050499358, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
-  m_PrefabInstance: {fileID: 2815354883766916759}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2818329541526346335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}

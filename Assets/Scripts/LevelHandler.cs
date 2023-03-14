@@ -7,24 +7,30 @@ public class LevelHandler : MonoBehaviour
 {
     private float delayInSeconds = 2.0f;
     private GameObject canvas;
+    private GameObject rocket;
     private LivesScript livesScript;
     private RocketAudioProcessor rocketAudioProcessor;
     private Movement movement;
+
+    private const string ROCKET_TAG = "Player";
+    private const string CANVAS_NAME = "Canvas";
+    private const string STATE = "State";
 
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem finishParticles;
 
     private void Start(){
-        rocketAudioProcessor = GetComponent<RocketAudioProcessor>();
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find(CANVAS_NAME);
+        rocket = GameObject.FindWithTag(ROCKET_TAG);
+        rocketAudioProcessor = rocket.GetComponent<RocketAudioProcessor>();
         livesScript = canvas.GetComponent<LivesScript>();
-        movement = GetComponent<Movement>();
+        movement = rocket.GetComponent<Movement>();
     }
 
     private void nextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        var state = new GameObject("State");
+        var state = new GameObject(STATE);
         var setState = state.AddComponent<LifeState>();
 
         setState.setLives(livesScript.getLives());
@@ -43,7 +49,7 @@ public class LevelHandler : MonoBehaviour
     }
 
     private void CrashSequence(){
-        GetComponent<CollisionHandler>().SetIsTransitioningTrue();
+        rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
         movement.SetDisableMovementTrue();  
         crashParticles.Play();
         rocketAudioProcessor.playCrash();
@@ -53,7 +59,7 @@ public class LevelHandler : MonoBehaviour
 
     private void NextLevelSequence()
     {
-        GetComponent<CollisionHandler>().SetIsTransitioningTrue();
+        rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
         movement.SetDisableMovementTrue();
         rocketAudioProcessor.playFinish();
         rocketAudioProcessor.setDisableAudioTrue();
