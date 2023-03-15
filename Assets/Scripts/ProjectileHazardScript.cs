@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileHazardScript : MonoBehaviour
 {
-    private float newtonsApplied = 15f;
+    private float newtonsApplied = .25f;
     private float detectionRadius = 12f;
     private GameObject rocket;
     private bool isMoving;
@@ -27,7 +27,7 @@ public class ProjectileHazardScript : MonoBehaviour
                 if (currentCollider.tag == ROCKET_TAG)
                 {
                     targetVector = rocket.transform.position - transform.position;
-                    GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied * Time.deltaTime);
+                    GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied);
                     isMoving = true;
                 } 
             }

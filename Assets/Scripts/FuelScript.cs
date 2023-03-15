@@ -9,7 +9,7 @@ public class FuelScript : MonoBehaviour
     private GameObject fueltTextObject;
     private GameObject rocket;
     private Text fuelText;  
-    private float decrementSpeed = .5f;
+    private float decrementSpeed = 2f;
     private float fuel;  
 
     private const string ROCKET_TAG = "Player";
@@ -35,7 +35,6 @@ public class FuelScript : MonoBehaviour
             } else if (fuel <= 0){
                 rocket.GetComponent<Movement>().SetDisableMovementTrue();
             }
-            //Debug.Log("You have this much fuel: " + Fuel);
             fuelText.text = "Fuel: " + fuel.ToString("00") + " %";
         }
     }
