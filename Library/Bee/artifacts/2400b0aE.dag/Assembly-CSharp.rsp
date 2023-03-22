@@ -354,6 +354,7 @@
 "Assets/Scripts/LifeState.cs"
 "Assets/Scripts/LivesScript.cs"
 "Assets/Scripts/Movement.cs"
+"Assets/Scripts/OneUpScript.cs"
 "Assets/Scripts/Oscillator.cs"
 "Assets/Scripts/PowerUpFuel.cs"
 "Assets/Scripts/ProjectileHazardScript.cs"

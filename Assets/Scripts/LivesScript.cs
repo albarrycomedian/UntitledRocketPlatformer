@@ -38,6 +38,7 @@ public class LivesScript : MonoBehaviour
 
     private void performOneUp(){
         lives++;
+        livesText.text = GetLivesString(lives.ToString());
     }
 
     private void performOneDown(){

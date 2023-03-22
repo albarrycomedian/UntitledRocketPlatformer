@@ -10,6 +10,7 @@ TagManager:
   - Health
   - SmallHazard
   - LaunchPad
+  - 1Up
   layers:
   - Default
   - TransparentFX

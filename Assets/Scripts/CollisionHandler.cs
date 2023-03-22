@@ -7,6 +7,7 @@ public class CollisionHandler : MonoBehaviour
 {
     private GameObject canvas;
     private LevelHandler levelHandler;
+    private LivesScript livesScript;
     private Movement movement;
     private Rigidbody rb; 
     private RocketAudioProcessor rocketAudioProcessor;
@@ -23,6 +24,7 @@ public class CollisionHandler : MonoBehaviour
         levelHandler = canvas.GetComponent<LevelHandler>();
         fuel = canvas.GetComponent<FuelScript>();
         health = canvas.GetComponent<HealthScript>();
+        livesScript = canvas.GetComponent<LivesScript>();
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -42,6 +44,9 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Health":
                 health.ProcessPickupHealth();
+                break;
+            case "1Up":
+                livesScript.oneUp();
                 break;
             case "LargeHazard":
                 health.ProcessLargeHazardCollision();
