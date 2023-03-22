@@ -12,16 +12,12 @@ public class LevelHandler : MonoBehaviour
     private RocketAudioProcessor rocketAudioProcessor;
     private Movement movement;
 
-    private const string ROCKET_TAG = "Player";
-    private const string CANVAS_NAME = "Canvas";
-    private const string STATE = "State";
-
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem finishParticles;
 
     private void Start(){
-        canvas = GameObject.Find(CANVAS_NAME);
-        rocket = GameObject.FindWithTag(ROCKET_TAG);
+        canvas = GameObject.Find(Constants.CANVAS_NAME);
+        rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
         rocketAudioProcessor = rocket.GetComponent<RocketAudioProcessor>();
         livesScript = canvas.GetComponent<LivesScript>();
         movement = rocket.GetComponent<Movement>();
@@ -30,7 +26,7 @@ public class LevelHandler : MonoBehaviour
     private void nextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        var state = new GameObject(STATE);
+        var state = new GameObject(Constants.STATE);
         var setState = state.AddComponent<LifeState>();
 
         setState.setLives(livesScript.getLives());

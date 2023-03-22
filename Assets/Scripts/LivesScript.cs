@@ -13,17 +13,13 @@ public class LivesScript : MonoBehaviour
     private GameObject rocket;
     private LevelHandler levelHandler;
 
-    private const string LIVES_TEXT = "LivesText";
-    private const string ROCKET_TAG = "Player";
-    private const string STATE = "State";
-
     // Start is called before the first frame update
     private void Start(){
-        rocket = GameObject.FindWithTag(ROCKET_TAG);
-        livesTextObject = GameObject.Find(LIVES_TEXT);
+        rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
+        livesTextObject = GameObject.Find(Constants.LIVES_TEXT);
         livesText = livesTextObject.GetComponent<Text>(); 
         levelHandler = GetComponent<LevelHandler>();
-        var state = GameObject.Find(STATE);
+        var state = GameObject.Find(Constants.STATE);
 
         if(state == null){
             lives = 3;

@@ -8,12 +8,10 @@ public class ProjectileHazardScript : MonoBehaviour
     private float detectionRadius = 12f;
     private GameObject rocket;
     private bool isMoving;
-
-    private const string ROCKET_TAG = "Player";
     
     private void Start(){
         isMoving = false;
-        rocket = GameObject.FindWithTag(ROCKET_TAG);
+        rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
     }
 
     // Update is called once per frame
@@ -24,7 +22,7 @@ public class ProjectileHazardScript : MonoBehaviour
         foreach (var currentCollider in hitColliders)
         {
             if (!isMoving){
-                if (currentCollider.tag == ROCKET_TAG)
+                if (currentCollider.tag == Constants.ROCKET_TAG)
                 {
                     targetVector = rocket.transform.position - transform.position;
                     GetComponent<Rigidbody>().AddForce(targetVector * newtonsApplied);

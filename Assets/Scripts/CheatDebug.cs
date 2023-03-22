@@ -9,10 +9,8 @@ public class CheatDebug : MonoBehaviour
     private LevelHandler levelHandler;
     private GameObject canvas;
 
-    private const string CANVAS_NAME = "Canvas";
-
     private void Start(){
-        canvas = GameObject.Find(CANVAS_NAME);
+        canvas = GameObject.Find(Constants.CANVAS_NAME);
         levelHandler = canvas.GetComponent<LevelHandler>();
         boxCollider = GetComponent<BoxCollider>();
     }
