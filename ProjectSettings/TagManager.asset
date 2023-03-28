@@ -11,6 +11,7 @@ TagManager:
   - SmallHazard
   - LaunchPad
   - 1Up
+  - GodMode
   layers:
   - Default
   - TransparentFX

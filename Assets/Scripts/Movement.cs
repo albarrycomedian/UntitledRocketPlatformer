@@ -70,9 +70,13 @@ public class Movement : MonoBehaviour
     }
 
     private void ApplyRotationThrust(float rotationThrust) {
-        rb.freezeRotation = true; //overrides physics system rotations
+        rb.constraints = RigidbodyConstraints.None;
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationThrust);
-        rb.freezeRotation = false;
+        UnfreezeRotations();
+    }
+
+    private void UnfreezeRotations(){
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
     }
 
     public void SetDisableMovementTrue(){

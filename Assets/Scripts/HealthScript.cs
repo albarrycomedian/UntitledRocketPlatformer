@@ -8,6 +8,9 @@ public class HealthScript : MonoBehaviour
 {
     private Text healthText;  
     private int health;
+    private bool isVulnerable;
+    private float godModeStartTimestamp;
+    private float godModeThreshold = 30f;
     
     private GameObject canvas;
     private GameObject healthTextObject;
@@ -21,6 +24,15 @@ public class HealthScript : MonoBehaviour
         healthTextObject = GameObject.Find(Constants.HEALTH_TEXT);
         healthText = healthTextObject.GetComponent<Text>();
         healthText.text = GetHealthString(health.ToString());
+        isVulnerable = true;
+    }
+
+    private void Update(){
+        if(!isVulnerable){
+            if(Time.time > (godModeStartTimestamp + godModeThreshold)){
+                isVulnerable = true;
+            }
+        }
     }
 
     private string GetHealthString(string health){
@@ -29,23 +41,32 @@ public class HealthScript : MonoBehaviour
     }
 
     private void SmallHazardCollision(){
-        health -= 10;
-        if(health <= 0){
-            healthText.text = GetHealthString(Constants.NO_HEALTH);
-            livesScript.oneDown();
-        } else{
-            healthText.text = GetHealthString(health.ToString());
+        if(isVulnerable){
+            health -= 10;
+            if(health <= 0){
+                healthText.text = GetHealthString(Constants.NO_HEALTH);
+                livesScript.oneDown();
+            } else{
+                healthText.text = GetHealthString(health.ToString());
+            }
         }
     }
 
     private void LargeHazardCollision(){
-        healthText.text = GetHealthString(Constants.NO_HEALTH);
-        livesScript.oneDown();
+        if(isVulnerable){
+            healthText.text = GetHealthString(Constants.NO_HEALTH);
+            livesScript.oneDown();
+        }
     }
 
     private void PickupHealth(){
         health = 100;
         healthText.text = GetHealthString(health.ToString());
+    }
+
+    private void StartGodMode(){
+        godModeStartTimestamp = Time.time;
+        isVulnerable = false;
     }
 
     public void ProcessSmallHazardCollision(){
@@ -58,5 +79,9 @@ public class HealthScript : MonoBehaviour
 
     public void ProcessPickupHealth(){
         PickupHealth();
+    }
+
+    public void EngageGodMode(){
+        StartGodMode();
     }
 }

@@ -48,6 +48,9 @@ public class CollisionHandler : MonoBehaviour
             case "1Up":
                 livesScript.oneUp();
                 break;
+            case "GodMode":
+                health.EngageGodMode();
+                break;
             case "LargeHazard":
                 health.ProcessLargeHazardCollision();
                 break;
