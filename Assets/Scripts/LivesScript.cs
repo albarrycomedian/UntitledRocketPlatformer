@@ -38,7 +38,6 @@ public class LivesScript : MonoBehaviour
     }
 
     private void performOneDown(){
-        GameObject child;
         lives--;
 
         if(lives >= 0){
@@ -47,17 +46,26 @@ public class LivesScript : MonoBehaviour
 
             setState.setLives(lives);
             DontDestroyOnLoad(state);
-            for(int i = 0; i < rocket.transform.childCount; i++){
-                child = rocket.transform.GetChild(i).gameObject;
-                child.AddComponent<Rigidbody>();
-            }
-            rocket.transform.DetachChildren();
+            ExplodeRocket(rocket);
             levelHandler.ProcessCrashSequence();
         } else {
             //Game Over
 
             //TODO: Call Game Over Manager
         }
+    }
+
+    private void ExplodeRocket(GameObject gameObject){
+        GameObject child;
+        for(int i = 0; i < gameObject.transform.childCount; i++){
+            child = gameObject.transform.GetChild(i).gameObject;
+            if(child.transform.childCount > 0){
+                ExplodeRocket(child);
+            } else {
+                child.AddComponent<Rigidbody>();
+            }
+        }
+        gameObject.transform.DetachChildren();
     }
 
     private string GetLivesString(string lives){

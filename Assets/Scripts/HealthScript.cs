@@ -31,6 +31,9 @@ public class HealthScript : MonoBehaviour
         if(!isVulnerable){
             if(Time.time > (godModeStartTimestamp + godModeThreshold)){
                 isVulnerable = true;
+                healthText.text = GetHealthString(health.ToString());
+            } else {
+                OverrideHealthText();
             }
         }
     }
@@ -38,6 +41,11 @@ public class HealthScript : MonoBehaviour
     private string GetHealthString(string health){
         string healthText = "Health: " + health + "%";
         return healthText;
+    }
+
+    private void OverrideHealthText(){
+        float timeLeft = (godModeStartTimestamp + godModeThreshold) - Time.time;
+        healthText.text = "God Mode " + string.Format("{0:N1}", timeLeft) + "S";
     }
 
     private void SmallHazardCollision(){
