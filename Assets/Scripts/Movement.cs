@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
         if (!disableMovement){
             ProcessThrust();
             ProcessRotation();
+            CheckAndAdjustPosition();
         } else {
             StopThrusting();
         }
@@ -70,13 +71,27 @@ public class Movement : MonoBehaviour
     }
 
     private void ApplyRotationThrust(float rotationThrust) {
-        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationThrust);
         UnfreezeRotations();
     }
 
     private void UnfreezeRotations(){
         rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
+    }
+
+    private void CheckAndAdjustPosition(){
+        if(transform.position.z != 0f){
+            transform.SetLocalPositionAndRotation(new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
+        }
+        if(transform.rotation.y != 0f){
+            transform.SetLocalPositionAndRotation(transform.position, 
+                new Quaternion(transform.rotation.x, 0f, transform.rotation.z, transform.rotation.w));
+        }
+        if(transform.rotation.x != 0f){
+            transform.SetLocalPositionAndRotation(transform.position, 
+            new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w));;
+        }
     }
 
     public void SetDisableMovementTrue(){
