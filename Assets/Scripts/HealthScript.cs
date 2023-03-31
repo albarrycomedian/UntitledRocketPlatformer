@@ -39,13 +39,13 @@ public class HealthScript : MonoBehaviour
     }
 
     private string GetHealthString(string health){
-        string healthText = "Health: " + health + "%";
+        string healthText = "Shields: " + health + "%";
         return healthText;
     }
 
     private void OverrideHealthText(){
         float timeLeft = (godModeStartTimestamp + godModeThreshold) - Time.time;
-        healthText.text = "God Mode " + string.Format("{0:N1}", timeLeft) + "S";
+        healthText.text = "Mega Shields " + string.Format("{0:N1}", timeLeft) + "S";
     }
 
     private void SmallHazardCollision(){
