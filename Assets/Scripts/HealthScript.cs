@@ -8,13 +8,16 @@ public class HealthScript : MonoBehaviour
 {
     private Text healthText;  
     private int health;
-    private bool isVulnerable;
     private float godModeStartTimestamp;
     private float godModeThreshold = 30f;
     
     private GameObject canvas;
     private GameObject healthTextObject;
     private LivesScript livesScript;
+
+    // This will be moved to a common script
+    public bool isVulnerable;
+
 
     // Start is called before the first frame update
     private void Start(){

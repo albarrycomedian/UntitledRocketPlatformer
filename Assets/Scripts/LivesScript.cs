@@ -41,7 +41,7 @@ public class LivesScript : MonoBehaviour
         lives--;
 
         if(lives >= 0){
-            var state = new GameObject("State");
+            var state = new GameObject(Constants.STATE_OBJECT);
             var setState = state.AddComponent<LifeState>();
 
             setState.setLives(lives);

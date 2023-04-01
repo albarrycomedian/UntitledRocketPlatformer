@@ -8,7 +8,7 @@ public class ToggleLight : MonoBehaviour
     Light rocketLight;
     // Start is called before the first frame update
     void Start(){
-        lightObject = GameObject.Find("SpotLight");
+        lightObject = GameObject.Find(Constants.SPOTLIGHT_OBJECT);
         rocketLight = lightObject.GetComponent<Light>();
         rocketLight.enabled = false;
     }

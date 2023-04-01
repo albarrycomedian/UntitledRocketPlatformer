@@ -20,7 +20,7 @@ public class CollisionHandler : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         movement = GetComponent<Movement>();
         rocketAudioProcessor = GetComponent<RocketAudioProcessor>();
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find(Constants.CANVAS_OBJCET);
         levelHandler = canvas.GetComponent<LevelHandler>();
         fuel = canvas.GetComponent<FuelScript>();
         health = canvas.GetComponent<HealthScript>();

@@ -7,7 +7,7 @@ public class PowerUpFuel : MonoBehaviour
     private void OnCollisionEnter(Collision other){
         switch (other.gameObject.tag)
         {
-            case "Player":
+            case Constants.ROCKET_TAG:
                 Destroy(gameObject);
                 break;
         }
