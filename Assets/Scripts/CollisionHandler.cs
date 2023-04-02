@@ -14,8 +14,12 @@ public class CollisionHandler : MonoBehaviour
     private FuelScript fuel;
     private HealthScript health;
 
+    // Potentially should be part of a commons script
     private bool isTransitioning = false;
 
+    /**
+    * Get the scripts and components we will use.
+    */
     private void Start (){
         rb = GetComponent<Rigidbody>();
         movement = GetComponent<Movement>();
@@ -27,6 +31,11 @@ public class CollisionHandler : MonoBehaviour
         livesScript = canvas.GetComponent<LivesScript>();
     }
 
+    /**
+    * Process behaviors for various collisions types.
+    * 
+    * Param: other
+    */
     private void OnCollisionEnter(Collision other) {
         if (isTransitioning){
             return;
@@ -64,10 +73,16 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    /**
+    * Set's transitioning to true.
+    */
     public void SetIsTransitioningTrue(){
         isTransitioning = true;
     }
 
+    /**
+    * Set's transitioning to false.
+    */
     public bool GetIsTransitioningTrue(){
         return isTransitioning;
     }

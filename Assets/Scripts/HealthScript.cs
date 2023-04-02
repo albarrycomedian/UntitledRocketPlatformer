@@ -19,7 +19,9 @@ public class HealthScript : MonoBehaviour
     public bool isVulnerable;
 
 
-    // Start is called before the first frame update
+    /**
+    * Sets variables and gets the game objects, components, and scripts we will use.
+    */
     private void Start(){
         health = 100;
         canvas = GameObject.Find(Constants.CANVAS_NAME);
@@ -30,6 +32,11 @@ public class HealthScript : MonoBehaviour
         isVulnerable = true;
     }
 
+    /**
+    * On each frame check to see if the rocket is vulnerable or not.
+    * If it is not vulnerable override the health text with countdown for vulnerability.
+    * If timer hits 0, restore vulnerability and health text.
+    */
     private void Update(){
         if(!isVulnerable){
             if(Time.time > (godModeStartTimestamp + godModeThreshold)){
@@ -41,16 +48,28 @@ public class HealthScript : MonoBehaviour
         }
     }
 
+    /**
+    * Get the health string to display.
+    *
+    * Param: health
+    * return: health string
+    */
     private string GetHealthString(string health){
         string healthText = "Shields: " + health + "%";
         return healthText;
     }
 
+    /**
+    * Override the health text with the mega shield text.
+    */
     private void OverrideHealthText(){
         float timeLeft = (godModeStartTimestamp + godModeThreshold) - Time.time;
         healthText.text = "Mega Shields " + string.Format("{0:N1}", timeLeft) + "S";
     }
 
+    /**
+    * Process damage for collision with small hazard if rocket is vulnerable.
+    */
     private void SmallHazardCollision(){
         if(isVulnerable){
             health -= 10;
@@ -63,6 +82,9 @@ public class HealthScript : MonoBehaviour
         }
     }
 
+    /**
+    * Process damage for large hazard collision if rocket is vulnerable.
+    */
     private void LargeHazardCollision(){
         if(isVulnerable){
             healthText.text = GetHealthString(Constants.NO_HEALTH);
@@ -70,28 +92,46 @@ public class HealthScript : MonoBehaviour
         }
     }
 
+    /**
+    * Restore health to 100.
+    */
     private void PickupHealth(){
         health = 100;
         healthText.text = GetHealthString(health.ToString());
     }
 
+    /**
+    * Make rocket invulnerable.
+    */
     private void StartGodMode(){
         godModeStartTimestamp = Time.time;
         isVulnerable = false;
     }
 
+    /**
+    * Public method to process small hazard damage.
+    */
     public void ProcessSmallHazardCollision(){
         SmallHazardCollision();
     }
 
+    /**
+    * Public method to process large hazard damage.
+    */
     public void ProcessLargeHazardCollision(){
         LargeHazardCollision();
     }
 
+    /**
+    * Public method to process health pickup.
+    */
     public void ProcessPickupHealth(){
         PickupHealth();
     }
 
+    /**
+    * Public method to enable invulnerability.
+    */
     public void EngageGodMode(){
         StartGodMode();
     }

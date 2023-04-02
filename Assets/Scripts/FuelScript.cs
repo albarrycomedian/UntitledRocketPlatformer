@@ -12,7 +12,9 @@ public class FuelScript : MonoBehaviour
     private float decrementSpeed = 2f;
     private float fuel;  
 
-    // Start is called before the first frame update
+    /**
+    * Set variables and get the game objects and components we will use.
+    */
     private void Start(){
         fuel = 100;
         fueltTextObject = GameObject.Find(Constants.FUEL_TEXT);
@@ -20,11 +22,18 @@ public class FuelScript : MonoBehaviour
         fuelText = fueltTextObject.GetComponent<Text>();
     }
 
-    // Update is called once per frame
+    /**
+    * Check to see if we need to process fuel each frame.
+    */
     private void Update(){
         ProcessFuel();
     }
 
+    /**
+    * Decrements fuel if the space button is being pushed.
+    * Disables movement if fuel reaches 0.
+    * Updates the fuel text.
+    */
     private void ProcessFuel(){        
         if (Input.GetKey(KeyCode.Space)){
             if (fuel > 0){
@@ -36,6 +45,9 @@ public class FuelScript : MonoBehaviour
         }
     }
 
+    /**
+    * Resets fuel level.
+    */
     public void Refuel(){
         fuel = 100;
     }

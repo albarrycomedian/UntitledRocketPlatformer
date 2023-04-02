@@ -10,6 +10,9 @@ public class CheatDebug : MonoBehaviour
     private GameObject canvas;
     private bool collidersEnabled;
 
+    /**
+    * Get the scripts we will use and enable colliders.
+    */
     private void Start(){
         canvas = GameObject.Find(Constants.CANVAS_NAME);
         levelHandler = canvas.GetComponent<LevelHandler>();
@@ -18,18 +21,27 @@ public class CheatDebug : MonoBehaviour
         enableColliders(gameObject);
     }
 
+    /**
+    * Check each frame to see if we should load the next level or toggle collisions.
+    */
     private void Update() {
-        cheatNextLevel();
+        processLevelCheat();
         toggleCollisions();
     }
 
-     private void cheatNextLevel(){
+    /**
+    * Load the next level if the L key is pressed.
+    */
+    private void processLevelCheat(){
         if(Input.GetKeyDown(KeyCode.L)){
             levelHandler.LoadNextLevel();
         }
     }
 
-     private void toggleCollisions(){
+    /**
+    * Toggles the colliders on or off for the game object this script is attach to.
+    */
+    private void toggleCollisions(){
         if(Input.GetKeyDown(KeyCode.C)){
             if(collidersEnabled){
                 disableColliders(gameObject);
@@ -40,6 +52,11 @@ public class CheatDebug : MonoBehaviour
         } 
     }
 
+    /**
+    * Disables colliders for every child object attached to a game object.
+    *
+    * Param: gameObject
+    */
     private void disableColliders(GameObject gameObject){
         for(int i = 0; i < gameObject.transform.childCount; i++){
             
@@ -56,6 +73,11 @@ public class CheatDebug : MonoBehaviour
         collidersEnabled = false;
     }
 
+    /**
+    * Enables colliders for every child object attached to a game object.
+    *
+    * Param: gameObject
+    */
     private void enableColliders(GameObject gameObject){
         for(int i = 0; i < gameObject.transform.childCount; i++){
 
