@@ -15,6 +15,9 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem finishParticles;
 
+    /**
+    * Get the game objects and scripts we will be using.
+    */
     private void Start(){
         canvas = GameObject.Find(Constants.CANVAS_NAME);
         rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
@@ -23,6 +26,9 @@ public class LevelHandler : MonoBehaviour
         movement = rocket.GetComponent<Movement>();
     }
 
+    /**
+    * Stores the current state, currently just amount of lives, and loads the next scene.
+    */
     private void nextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
@@ -39,11 +45,23 @@ public class LevelHandler : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
     }
 
+    /**
+    * Reload the current scene.
+    *
+    * TODO: Currently we are handling saving the state outside of this script when we reload the current scene.
+    * Instead, reloading the scene should handle saving the game state.
+    */
     private void Reload(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
 
+    /**
+    * Sequence of events that occurs when the rocket crashes. Currently this is split with the lives script.
+    *
+    * TODO: Migrate this into the lives script, as the level handler should only take care of loading the scenes/levels.
+    * Additionally, the crash sequence occurs when the rocket health has dropped to zero and the player loses a life.
+    */
     private void CrashSequence(){
         rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
         movement.SetDisableMovementTrue();  
@@ -53,6 +71,11 @@ public class LevelHandler : MonoBehaviour
         Invoke(nameof(ReloadLevel), delayInSeconds);
     }
 
+    /**
+    * Sequence of events that occurs when the player succesfully lands on the landing pad.
+    *
+    * TODO: This method should be renamed, as this sequence only occurs when the level has been completed.
+    */
     private void NextLevelSequence()
     {
         rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
@@ -63,18 +86,30 @@ public class LevelHandler : MonoBehaviour
         Invoke(nameof(LoadNextLevel), delayInSeconds);
     }
 
+    /**
+    * Public method to call when the level has been completed.
+    */
     public void ProcessNextLevelSequence(){
         NextLevelSequence();
     }
 
+    /**
+    * Public method to call when the rocket has been destroyed.
+    */
     public void ProcessCrashSequence(){
         CrashSequence();
     }
 
+    /**
+    * Public method to call to load the next level.
+    */
     public void LoadNextLevel(){
         nextLevel();
     }
 
+    /**
+    * Public method to call to reload the current level.
+    */
     public void ReloadLevel(){
         Reload();
     }

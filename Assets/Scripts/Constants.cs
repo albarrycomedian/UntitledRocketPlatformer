@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Constants{
+    /**
+    * Constants that will be used by multiple scripts should be defined here.
+    * Naming convention should be CONSTANT_NAME.
+    */
+
     public const string CANVAS_NAME = "Canvas";
     public const string ROCKET_TAG = "Player";
     public const string FUEL_TEXT = "FuelText";
