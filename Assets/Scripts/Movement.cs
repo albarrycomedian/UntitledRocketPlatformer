@@ -15,13 +15,18 @@ public class Movement : MonoBehaviour
 
     [SerializeField] ParticleSystem mainThrusterParticles;
 
-    // Start is called before the first frame update
+    /**
+    * Initialize our variables.
+    */
     private void Start(){
        rb = GetComponent<Rigidbody>();
        disableMovement = false;
     }
 
-    // Update is called once per frame
+    /**
+    * Check if movement is disabled and either stop thrusting or process movment.
+    * We also need to perform error checking in case God mode is enabled.
+    */
     private void Update(){
         if (!disableMovement){
             ProcessThrust();
@@ -32,6 +37,9 @@ public class Movement : MonoBehaviour
         }
     }
 
+    /**
+    * Apply force to the rocket if the player is pushing the space button.
+    */
     private void ProcessThrust(){
         if (Input.GetKey(KeyCode.Space)){
             StartThrusting();
@@ -40,6 +48,9 @@ public class Movement : MonoBehaviour
         }
     }
 
+    /**
+    * Apply force to the rocket and play particles.
+    */
     private void StartThrusting(){
         rb.AddRelativeForce(Vector3.up * Time.deltaTime * mainThrust);
         if (!mainThrusterParticles.isPlaying)
@@ -48,10 +59,16 @@ public class Movement : MonoBehaviour
         }
     }
 
+    /**
+    * Turn of thruster particles.
+    */
     private void StopThrusting(){
         mainThrusterParticles.Stop();
     }
 
+    /**
+    * Process rotation if player is pushing A or D key. Do nothing if both keys are pressed.
+    */
     private void ProcessRotation(){
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)){
             //Do Nothing, as they cancel eachother out
@@ -62,6 +79,7 @@ public class Movement : MonoBehaviour
         }
     }
 
+    
     private void RotateLeft(){
         ApplyRotationThrust(rotationThrust);
     }
@@ -70,16 +88,32 @@ public class Movement : MonoBehaviour
         ApplyRotationThrust(-rotationThrust);
     }
 
+    /**
+    * Rotate rocket using transform.Rotate. Freeze rotations before rotating the rocket.
+    * Unfreeze rotations after rotating the rocket.
+    *
+    * TODO: Rename this method, as we aren't applying any force, rather rotating the object by 
+    * manipulating the transform.
+    */
     private void ApplyRotationThrust(float rotationThrust) {
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationThrust);
         UnfreezeRotations();
     }
 
+    /**
+    * Unfreeze the rotations, but restore our original constraints by constructing a mask.
+    */
     private void UnfreezeRotations(){
         rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
     }
 
+    /**
+    * Error correcting if there is any displacement along the Z axis.
+    * Additionally also error correcting if there is any rotation along the Y or X axis, which would result in displacement in Z.
+    * Without this the invulnerability powerup would break the game. This also fixes a bug where the rocket can become displaced
+    * in world space while still on the landing pad.
+    */
     private void CheckAndAdjustPosition(){
         if(transform.position.z != 0f){
             transform.SetLocalPositionAndRotation(new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
@@ -94,6 +128,9 @@ public class Movement : MonoBehaviour
         }
     }
 
+    /**
+    * Disables movement.
+    */
     public void SetDisableMovementTrue(){
         disableMovement = true;
     }

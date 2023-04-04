@@ -9,13 +9,26 @@ public class ProjectileHazardScript : MonoBehaviour
     private GameObject rocket;
     private bool isMoving;
     
+    /**
+    * Initialize variables.
+    */
     private void Start(){
         isMoving = false;
         rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
     }
 
-    // Update is called once per frame
+    /**
+    * Check to see if there are any objects within our detection sphere.
+    */
     private void Update(){
+        CheckForObjectsWithinProximity();
+    }
+
+    /**
+    * Check if any colliders are within our detection radius. If there are, check the tags.
+    * If it is the rocket, apply force in the direction of the rocket.
+    */
+    private void CheckForObjectsWithinProximity(){
         Vector3 targetVector;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position,detectionRadius);
         

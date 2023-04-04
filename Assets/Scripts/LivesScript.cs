@@ -13,7 +13,9 @@ public class LivesScript : MonoBehaviour
     private GameObject rocket;
     private LevelHandler levelHandler;
 
-    // Start is called before the first frame update
+    /**
+    * Initialize game objects, components, and scripts.
+    */
     private void Start(){
         rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
         livesTextObject = GameObject.Find(Constants.LIVES_TEXT);
@@ -32,11 +34,18 @@ public class LivesScript : MonoBehaviour
         }
     }
 
+    /**
+    * Increase lives by one and update text.
+    */
     private void performOneUp(){
         lives++;
         livesText.text = GetLivesString(lives.ToString());
     }
 
+    /**
+    * Decrease lives by one and check whether or not the player has lost the game.
+    * If the player hasn't lost the game, destroy the rocket, save the game state and run the crash sequence.
+    */
     private void performOneDown(){
         lives--;
 
@@ -55,6 +64,10 @@ public class LivesScript : MonoBehaviour
         }
     }
 
+    /**
+    * Explode the rocket by adding Rigidbodys to the child objects and detaching them from the parent.
+    * Param: gameObject
+    */
     private void ExplodeRocket(GameObject gameObject){
         GameObject child;
         for(int i = 0; i < gameObject.transform.childCount; i++){
@@ -68,19 +81,33 @@ public class LivesScript : MonoBehaviour
         gameObject.transform.DetachChildren();
     }
 
+    /**
+    * Get the lives string with the correct amount of lives as passed in as a paremeter.
+    * Param: lives
+    * Return: lives string
+    */
     private string GetLivesString(string lives){
         string livesText = "Lives: " + lives;
         return livesText;
     }
 
+    /**
+    * Public method for calling oneUp.
+    */
     public void oneUp(){
         performOneUp();
     }
 
+    /**
+    * Public method for calling oneDown.
+    */
     public void oneDown(){
         performOneDown();
     }
 
+    /**
+    * Public method to get the count of current lives.
+    */
     public int getLives(){
         return lives;
     }

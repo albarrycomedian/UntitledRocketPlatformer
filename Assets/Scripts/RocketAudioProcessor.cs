@@ -11,20 +11,27 @@ public class RocketAudioProcessor : MonoBehaviour
     [SerializeField] AudioClip finish;
     [SerializeField] AudioClip mainEngine;
     
-    // Start is called before the first frame update
+    /**
+    * Initialize our variables.
+    */
     private void Start(){
         rocketAudio = GetComponent<AudioSource>();
         rocketAudio.Stop();
         disableAudio = false;
     }
 
-    // Update is called once per frame
+    /**
+    * Check if the audio is disabled. If not, process the audio.
+    */
     private void Update(){
         if (!disableAudio){
             processAudio();
         }
     }
 
+    /**
+    * If the player is pressing the space key then play the rocket thrust sound.
+    */
     private void processAudio(){
         if(Input.GetKey(KeyCode.Space)){
             if(!rocketAudio.isPlaying){
@@ -35,16 +42,25 @@ public class RocketAudioProcessor : MonoBehaviour
         }
     }
 
+    /**
+    * Public method to play the level complete sound.
+    */
     public void playFinish(){
         rocketAudio.Stop();
         rocketAudio.PlayOneShot(finish);
     }
 
+    /**
+    * Public method to play the crash sound.
+    */
     public void playCrash(){
         rocketAudio.Stop();
         rocketAudio.PlayOneShot(crash);
     }
 
+    /**
+    * Public method to disable audio.
+    */
     public void setDisableAudioTrue(){
         disableAudio = true;
     }
