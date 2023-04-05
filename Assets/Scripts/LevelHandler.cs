@@ -74,9 +74,8 @@ public class LevelHandler : MonoBehaviour
     /**
     * Sequence of events that occurs when the player succesfully lands on the landing pad.
     *
-    * TODO: This method should be renamed, as this sequence only occurs when the level has been completed.
     */
-    private void NextLevelSequence()
+    private void LevelCompletedSequence()
     {
         rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
         movement.SetDisableMovementTrue();
@@ -89,8 +88,8 @@ public class LevelHandler : MonoBehaviour
     /**
     * Public method to call when the level has been completed.
     */
-    public void ProcessNextLevelSequence(){
-        NextLevelSequence();
+    public void ProcessLevelCompletedSequence(){
+        LevelCompletedSequence();
     }
 
     /**

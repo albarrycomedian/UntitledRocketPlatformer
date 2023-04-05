@@ -43,7 +43,7 @@ public class CollisionHandler : MonoBehaviour
         
         switch (other.gameObject.tag){
             case "Finish":
-                levelHandler.ProcessNextLevelSequence();
+                levelHandler.ProcessLevelCompletedSequence();
                 break;
             case "Fuel":
                 fuel.Refuel();
