@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SmallHazardCollisionHandler : MonoBehaviour
 {
+    /**
+    * On Any collision destroy the hazard.
+    */
     private void OnCollisionEnter(Collision other){
         Destroy(gameObject);  
     }

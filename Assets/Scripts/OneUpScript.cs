@@ -12,6 +12,8 @@ public class OneUpScript : MonoBehaviour
     * whether or not this should be destroyed on all collisions, or just on collisions with the rocket.
     */
     private void OnCollisionEnter(Collision other) {
-        Destroy(gameObject);
+        if (other.gameObject.tag == Constants.ROCKET_TAG){
+            Destroy(gameObject);
+        }
     }
 }
