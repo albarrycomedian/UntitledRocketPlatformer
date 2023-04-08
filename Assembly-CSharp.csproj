@@ -57,8 +57,7 @@
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets/Scripts/HealthScript.cs" />
      <Compile Include="Assets/Scripts/Oscillator.cs" />
-     <Compile Include="Assets/Scripts/PowerUpFuel.cs" />
-     <Compile Include="Assets/Scripts/OneUpScript.cs" />
+     <Compile Include="Assets/Scripts/PowerUpScript.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
