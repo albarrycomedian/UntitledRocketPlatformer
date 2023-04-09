@@ -9,7 +9,7 @@ public class LevelHandler : MonoBehaviour
     private GameObject canvas;
     private GameObject rocket;
     private LivesScript livesScript;
-    private RocketAudioProcessor rocketAudioProcessor;
+    private AudioProcessor audioProcessor;
     private Movement movement;
 
     [SerializeField] ParticleSystem crashParticles;
@@ -21,7 +21,7 @@ public class LevelHandler : MonoBehaviour
     private void Start(){
         canvas = GameObject.Find(Constants.CANVAS_NAME);
         rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
-        rocketAudioProcessor = rocket.GetComponent<RocketAudioProcessor>();
+        audioProcessor = rocket.GetComponent<AudioProcessor>();
         livesScript = canvas.GetComponent<LivesScript>();
         movement = rocket.GetComponent<Movement>();
     }
@@ -63,11 +63,11 @@ public class LevelHandler : MonoBehaviour
     * Additionally, the crash sequence occurs when the rocket health has dropped to zero and the player loses a life.
     */
     private void CrashSequence(){
+        audioProcessor.playCrash();
+        audioProcessor.setDisableAudioTrue();
         rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
         movement.SetDisableMovementTrue();  
         crashParticles.Play();
-        rocketAudioProcessor.playCrash();
-        rocketAudioProcessor.setDisableAudioTrue();
         Invoke(nameof(ReloadLevel), delayInSeconds);
     }
 
@@ -77,10 +77,10 @@ public class LevelHandler : MonoBehaviour
     */
     private void LevelCompletedSequence()
     {
+        audioProcessor.playFinish();
+        audioProcessor.setDisableAudioTrue();
         rocket.GetComponent<CollisionHandler>().SetIsTransitioningTrue();
         movement.SetDisableMovementTrue();
-        rocketAudioProcessor.playFinish();
-        rocketAudioProcessor.setDisableAudioTrue();
         finishParticles.Play();
         Invoke(nameof(LoadNextLevel), delayInSeconds);
     }

@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 811347163803452743}
   - component: {fileID: 153909625237349992}
   - component: {fileID: 8352389366077783478}
-  - component: {fileID: 1139448633}
+  - component: {fileID: 2046913286}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Player
@@ -5167,7 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b664a19070618b444997e5e85e976113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1139448633
+--- !u!114 &2046913286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

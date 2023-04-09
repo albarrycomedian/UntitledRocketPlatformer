@@ -8,9 +8,6 @@ public class CollisionHandler : MonoBehaviour
     private GameObject canvas;
     private LevelHandler levelHandler;
     private LivesScript livesScript;
-    private Movement movement;
-    private Rigidbody rb; 
-    private RocketAudioProcessor rocketAudioProcessor;
     private FuelScript fuel;
     private HealthScript health;
 
@@ -21,9 +18,6 @@ public class CollisionHandler : MonoBehaviour
     * Get the scripts and components we will use.
     */
     private void Start (){
-        rb = GetComponent<Rigidbody>();
-        movement = GetComponent<Movement>();
-        rocketAudioProcessor = GetComponent<RocketAudioProcessor>();
         canvas = GameObject.Find(Constants.CANVAS_OBJCET);
         levelHandler = canvas.GetComponent<LevelHandler>();
         fuel = canvas.GetComponent<FuelScript>();
