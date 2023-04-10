@@ -48,7 +48,6 @@ public class CheatDebug : MonoBehaviour
             } else{
                 enableColliders(gameObject);
             }
-            boxCollider.enabled = !boxCollider.enabled;
         } 
     }
 
@@ -70,6 +69,7 @@ public class CheatDebug : MonoBehaviour
                 transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = false;
             }
         }
+        boxCollider.enabled = false;
         collidersEnabled = false;
     }
 
@@ -91,6 +91,7 @@ public class CheatDebug : MonoBehaviour
                 transform.GetChild(i).GetComponent<CapsuleCollider>().enabled = true;
             }
         }
+        boxCollider.enabled = true;
         collidersEnabled = true;
     }
 }
