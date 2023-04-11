@@ -79,11 +79,16 @@ public class Movement : MonoBehaviour
         }
     }
 
-    
+    /**
+    * Rotate the rocket left.
+    */    
     private void RotateLeft(){
         ApplyRotationThrust(rotationThrust);
     }
 
+    /**
+    * Rotate the rocket right.
+    */
     private void RotateRight(){
         ApplyRotationThrust(-rotationThrust);
     }

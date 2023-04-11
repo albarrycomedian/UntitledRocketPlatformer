@@ -9,6 +9,11 @@ public class QuitApplication : MonoBehaviour
         processQuitApp();
     }
 
+    /**
+    * Quit the application.
+    * 
+    * TODO: Complete method.
+    */
     private void processQuitApp(){
         if(Input.GetKey(KeyCode.Escape))
         {
