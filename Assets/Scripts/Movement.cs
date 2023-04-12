@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
     }
 
     /**
-    * Turn of thruster particles.
+    * Turn off thruster particles.
     */
     private void StopThrusting(){
         mainThrusterParticles.Stop();
