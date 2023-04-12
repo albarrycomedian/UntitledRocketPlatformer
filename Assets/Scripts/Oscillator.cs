@@ -32,7 +32,7 @@ public class Oscillator : MonoBehaviour
     */
     private void Update(){
         if(isMovable){
-            //Effectively the clock, this will roll over to negative values when we hit 3.402823466 E + 38
+            //Effectively the clock, this will overflow to negative values when we hit 3.402823466 E + 38
             //I'm not sure what will happen when/if this occurs, I would assume the obstacle will teleport for a single frame.
             cycles += (0.25f * Time.deltaTime);
             processOffset(cycles); 
