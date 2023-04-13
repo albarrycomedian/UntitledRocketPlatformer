@@ -16,7 +16,9 @@ public class ToggleLight : MonoBehaviour
         rocketLight.enabled = false;
     }
 
-    
+    /**
+    * Once per frame check to see if the light has been enabled.
+    */
     void Update()
     {
         LightHandler();

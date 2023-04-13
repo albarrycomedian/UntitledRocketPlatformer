@@ -83,8 +83,12 @@ public class LivesScript : MonoBehaviour
 
     /**
     * Get the lives string with the correct amount of lives as passed in as a paremeter.
-    * Param: lives
+    * Param: lives, string containing current lives count.
     * Return: lives string
+    *
+    * TODO: This should take in an integer instead of a string.
+    * It should double check that the value is not less then 0.
+    * It should then convert the integer into a string.
     */
     private string GetLivesString(string lives){
         string livesText = "Lives: " + lives;

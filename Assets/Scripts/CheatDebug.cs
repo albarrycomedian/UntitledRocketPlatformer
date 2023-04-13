@@ -54,7 +54,7 @@ public class CheatDebug : MonoBehaviour
     /**
     * Disables colliders for every child object attached to a game object.
     *
-    * Param: gameObject
+    * Param: gameObject whose colliders, and child colliders, will be disabled.
     */
     private void disableColliders(GameObject gameObject){
         for(int i = 0; i < gameObject.transform.childCount; i++){
@@ -76,7 +76,7 @@ public class CheatDebug : MonoBehaviour
     /**
     * Enables colliders for every child object attached to a game object.
     *
-    * Param: gameObject
+    * Param: gameObject whose colliders, and child colliders will be enabled.
     */
     private void enableColliders(GameObject gameObject){
         for(int i = 0; i < gameObject.transform.childCount; i++){

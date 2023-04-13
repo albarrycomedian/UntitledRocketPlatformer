@@ -28,7 +28,7 @@ public class CollisionHandler : MonoBehaviour
     /**
     * Process behaviors for various collisions types.
     * 
-    * Param: other
+    * Param: other, the object we have collided with.
     */
     private void OnCollisionEnter(Collision other) {
         if (isTransitioning){

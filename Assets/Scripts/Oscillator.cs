@@ -43,7 +43,7 @@ public class Oscillator : MonoBehaviour
     * Check and see if we've collided with a rocket that is invulnerable. 
     * If so, then disable movement to avoid bugs.
     *
-    * Param: other
+    * Param: other, the gameObject we collided with.
     */
     private void OnCollisionEnter(Collision other) {
         if(!health.isVulnerable && other.gameObject.tag == Constants.ROCKET_TAG){
@@ -55,7 +55,7 @@ public class Oscillator : MonoBehaviour
     * check and see if we've stopped colliding with an invulnerable rocket.
     * If so, then enable movement.
     * 
-    * Param: other
+    * Param: other, the gameObject we collided with.
     */
     private void OnCollisionExit(Collision other){
         if(!health.isVulnerable && other.gameObject.tag == Constants.ROCKET_TAG){
@@ -66,7 +66,7 @@ public class Oscillator : MonoBehaviour
     /**
     * Calculate the offset from the original position to move the object.
     * 
-    * Param: cycles
+    * Param: cycles, the current cycle being passed to the Sin function as radians.
     */
     private void processOffset(float cycles){   
         const float tau = Mathf.PI * 2; // constant value of 6.283

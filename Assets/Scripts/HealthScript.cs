@@ -51,8 +51,12 @@ public class HealthScript : MonoBehaviour
     /**
     * Get the health string to display.
     *
-    * Param: health
+    * Param: health, A string containing the current health percent.
     * return: health string
+    *
+    * TODO: This should take in an integer instead of a string.
+    * It should check the value of the int is between 0 and 100.
+    * It should then convert the integer to a string.
     */
     private string GetHealthString(string health){
         string healthText = "Shields: " + health + "%";
