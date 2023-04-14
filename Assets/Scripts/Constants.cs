@@ -8,10 +8,10 @@ public class Constants{
     * Naming convention should be CONSTANT_NAME.
     */
 
+    public const int NO_HEALTH = 0;
     public const string CANVAS_NAME = "Canvas";
     public const string ROCKET_TAG = "Player";
     public const string FUEL_TEXT = "FuelText";
-    public const string NO_HEALTH = "0";
     public const string HEALTH_TEXT = "HealthText";
     public const string STATE = "State";
     public const string LIVES_TEXT = "LivesText";

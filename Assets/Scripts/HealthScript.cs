@@ -28,7 +28,7 @@ public class HealthScript : MonoBehaviour
         livesScript = canvas.GetComponent<LivesScript>();
         healthTextObject = GameObject.Find(Constants.HEALTH_TEXT);
         healthText = healthTextObject.GetComponent<Text>();
-        healthText.text = GetHealthString(health.ToString());
+        healthText.text = GetHealthString(health);
         isVulnerable = true;
     }
 
@@ -41,7 +41,7 @@ public class HealthScript : MonoBehaviour
         if(!isVulnerable){
             if(Time.time > (godModeStartTimestamp + godModeThreshold)){
                 isVulnerable = true;
-                healthText.text = GetHealthString(health.ToString());
+                healthText.text = GetHealthString(health);
             } else {
                 OverrideHealthText();
             }
@@ -51,15 +51,20 @@ public class HealthScript : MonoBehaviour
     /**
     * Get the health string to display.
     *
-    * Param: health, A string containing the current health percent.
+    * Param: health, A integer containing the current health percent.
     * return: health string
-    *
-    * TODO: This should take in an integer instead of a string.
-    * It should check the value of the int is between 0 and 100.
-    * It should then convert the integer to a string.
     */
-    private string GetHealthString(string health){
-        string healthText = "Shields: " + health + "%";
+    private string GetHealthString(int health){
+        string healthText = "Shields: ";
+
+        if(health >= 0 && health <= 100){
+            healthText = healthText + health.ToString() + "%";
+        } else if(health < 0){
+            healthText = healthText + "0%"; 
+        } else if(health > 100){
+            healthText = healthText + "100%";
+        }
+
         return healthText;
     }
 
@@ -81,7 +86,7 @@ public class HealthScript : MonoBehaviour
                 healthText.text = GetHealthString(Constants.NO_HEALTH);
                 livesScript.oneDown();
             } else{
-                healthText.text = GetHealthString(health.ToString());
+                healthText.text = GetHealthString(health);
             }
         }
     }
@@ -101,7 +106,7 @@ public class HealthScript : MonoBehaviour
     */
     private void PickupHealth(){
         health = 100;
-        healthText.text = GetHealthString(health.ToString());
+        healthText.text = GetHealthString(health);
     }
 
     /**

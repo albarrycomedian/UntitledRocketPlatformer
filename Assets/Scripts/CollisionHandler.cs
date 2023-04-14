@@ -49,7 +49,9 @@ public class CollisionHandler : MonoBehaviour
                 health.ProcessPickupHealth();
                 break;
             case "1Up":
+                isTransitioning = true;
                 livesScript.oneUp();
+                isTransitioning = false;
                 break;
             case "GodMode":
                 health.EngageGodMode();

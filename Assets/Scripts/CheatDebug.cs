@@ -18,7 +18,7 @@ public class CheatDebug : MonoBehaviour
         levelHandler = canvas.GetComponent<LevelHandler>();
         boxCollider = GetComponent<BoxCollider>();
         collidersEnabled = true;
-        enableColliders(gameObject);
+        EnableColliders(gameObject);
     }
 
     /**
@@ -44,9 +44,9 @@ public class CheatDebug : MonoBehaviour
     private void toggleCollisions(){
         if(Input.GetKeyDown(KeyCode.C)){
             if(collidersEnabled){
-                disableColliders(gameObject);
+                DisableColliders(gameObject);
             } else{
-                enableColliders(gameObject);
+                EnableColliders(gameObject);
             }
         } 
     }
@@ -56,11 +56,11 @@ public class CheatDebug : MonoBehaviour
     *
     * Param: gameObject whose colliders, and child colliders, will be disabled.
     */
-    private void disableColliders(GameObject gameObject){
+    public void DisableColliders(GameObject gameObject){
         for(int i = 0; i < gameObject.transform.childCount; i++){
             
             if(gameObject.transform.GetChild(i).childCount > 0){
-                disableColliders(gameObject.transform.GetChild(i).gameObject);
+                DisableColliders(gameObject.transform.GetChild(i).gameObject);
             }
 
             if(transform.GetChild(i).GetComponent<BoxCollider>() != null){
@@ -78,11 +78,11 @@ public class CheatDebug : MonoBehaviour
     *
     * Param: gameObject whose colliders, and child colliders will be enabled.
     */
-    private void enableColliders(GameObject gameObject){
+    private void EnableColliders(GameObject gameObject){
         for(int i = 0; i < gameObject.transform.childCount; i++){
 
             if(gameObject.transform.GetChild(i).childCount > 0){
-                enableColliders(gameObject.transform.GetChild(i).gameObject);
+                EnableColliders(gameObject.transform.GetChild(i).gameObject);
             }
 
             if(transform.GetChild(i).GetComponent<BoxCollider>() != null){

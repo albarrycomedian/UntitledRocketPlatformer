@@ -10,6 +10,7 @@ public class PowerUpScript : MonoBehaviour
     *
     */
     private void OnCollisionEnter(Collision other){
+
         switch (other.gameObject.tag)
         {
             case Constants.ROCKET_TAG:
