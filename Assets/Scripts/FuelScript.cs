@@ -40,6 +40,7 @@ public class FuelScript : MonoBehaviour
                 fuel -= decrementSpeed * Time.deltaTime;
             } else if (fuel <= 0){
                 rocket.GetComponent<Movement>().SetDisableMovementTrue();
+                fuel = 0; // Fuel shouldn't be lower then zero.
             }
             fuelText.text = GetFuelText(fuel);
         }

@@ -57,15 +57,14 @@ public class HealthScript : MonoBehaviour
     private string GetHealthString(int health){
         string healthText = "Shields: ";
 
-        if(health >= 0 && health <= 100){
-            healthText = healthText + health.ToString() + "%";
-        } else if(health < 0){
-            healthText = healthText + "0%"; 
+        // Health should always be between 0 and 100
+        if(health < 0){
+            health = 0;
         } else if(health > 100){
-            healthText = healthText + "100%";
+            health = 100;
         }
 
-        return healthText;
+        return healthText = healthText + health.ToString() + "%";
     }
 
     /**
