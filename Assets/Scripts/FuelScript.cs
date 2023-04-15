@@ -41,8 +41,20 @@ public class FuelScript : MonoBehaviour
             } else if (fuel <= 0){
                 rocket.GetComponent<Movement>().SetDisableMovementTrue();
             }
-            fuelText.text = "Fuel: " + fuel.ToString("00") + " %";
+            fuelText.text = GetFuelText(fuel);
         }
+    }
+
+    /**
+    * Get the fuel text to display on the canvas.
+    *
+    * Param: fuel, float that contains current fuel level.
+    * Return: fuelText, the text to display on the canvas.
+    */
+    private string GetFuelText(float fuel){
+        string fuelText = "Fuel: " + fuel.ToString("00") + " %";
+
+        return fuelText;
     }
 
     /**
