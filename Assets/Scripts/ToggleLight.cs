@@ -6,6 +6,12 @@ public class ToggleLight : MonoBehaviour
 {
     GameObject lightObject;
     Light rocketLight;
+
+    /**
+    * TODO: Why is this script attached to the light?
+    * This script should be attached to the rocket.
+    * Update script, if need be, so that it can be attached to the rocket.
+    */
     
     /**
     * Initialize our variables.
