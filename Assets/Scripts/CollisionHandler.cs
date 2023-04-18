@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class CollisionHandler : MonoBehaviour
 {
+    private FuelScript fuel;
     private GameObject canvas;
+    private HealthScript health;
     private LevelHandler levelHandler;
     private LivesScript livesScript;
-    private FuelScript fuel;
-    private HealthScript health;
 
     // Potentially should be part of a commons script
     private bool isTransitioning = false;

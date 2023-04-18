@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ProjectileHazardScript : MonoBehaviour
 {
+    private bool isMoving;
     private float newtonsApplied = .25f;
     private float detectionRadius = 12f;
     private GameObject rocket;
-    private bool isMoving;
     
     /**
     * Initialize variables.

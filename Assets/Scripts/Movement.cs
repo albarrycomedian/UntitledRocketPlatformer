@@ -7,10 +7,9 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+    private bool disableMovement;
     private float mainThrust = 1000.0f;
     private float rotationThrust = 100.0f;
-
-    private bool disableMovement;
     private Rigidbody rb;
 
     [SerializeField] ParticleSystem mainThrusterParticles;

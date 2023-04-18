@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class CheatDebug : MonoBehaviour
 {
-    private BoxCollider boxCollider;
-    private LevelHandler levelHandler;
-    private GameObject canvas;
     private bool collidersEnabled;
+    private BoxCollider boxCollider;
+    private GameObject canvas;
+    private LevelHandler levelHandler;
 
     /**
     * Get the scripts we will use and enable colliders.

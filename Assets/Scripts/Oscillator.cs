@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Oscillator : MonoBehaviour
 {
+    private bool isMovable;
+    private float cycles;
+    private float delayInSeconds = 2f;
+    private float movementFactor;
+    private HealthScript health;
     private GameObject canvas;
     private Vector3 startingPosition;
     private Vector3 rotatingPosition;
-    private float movementFactor;
-    private HealthScript health;
-    private float cycles;
-
-    private bool isMovable;
 
     [SerializeField] Vector3 movementVector;
 
@@ -59,8 +59,15 @@ public class Oscillator : MonoBehaviour
     */
     private void OnCollisionExit(Collision other){
         if(!health.isVulnerable && other.gameObject.tag == Constants.ROCKET_TAG){
-            isMovable = true;
+            Invoke(nameof(MakeMovable), delayInSeconds);
         }
+    }
+
+    /**
+    * Method to set the isMovable variable to true.
+    */
+    private void MakeMovable(){
+        isMovable = true;
     }
 
     /**

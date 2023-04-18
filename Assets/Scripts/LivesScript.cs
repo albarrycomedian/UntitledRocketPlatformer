@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class LivesScript : MonoBehaviour
 {
-    private int lives;
-    private Text livesText;  
-
     private GameObject livesTextObject;
     private GameObject rocket;
+    private int lives;
     private LevelHandler levelHandler;
+    private Text livesText;  
 
     /**
     * Initialize game objects, components, and scripts.

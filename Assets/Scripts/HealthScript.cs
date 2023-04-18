@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
-    private Text healthText;  
-    private int health;
     private float godModeStartTimestamp;
-    private float godModeThreshold = 30f;
-    
+    private float godModeThreshold = 30f; 
+    private int health;
     private GameObject canvas;
     private GameObject healthTextObject;
     private LivesScript livesScript;
+    private Text healthText; 
 
-    // This will be moved to a common script
+    // TODO: This will be moved to a common script
     public bool isVulnerable;
 
 

@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
 {
+    private AudioProcessor audioProcessor;
     private float delayInSeconds = 2.0f;
     private GameObject canvas;
     private GameObject rocket;
     private LivesScript livesScript;
-    private AudioProcessor audioProcessor;
     private Movement movement;
 
     [SerializeField] ParticleSystem crashParticles;

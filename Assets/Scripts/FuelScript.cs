@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class FuelScript : MonoBehaviour
 {
+    private float decrementSpeed = 2f;
+    private float fuel;  
     private GameObject fueltTextObject;
     private GameObject rocket;
     private Text fuelText;  
-    private float decrementSpeed = 2f;
-    private float fuel;  
 
     /**
     * Set variables and get the game objects and components we will use.
