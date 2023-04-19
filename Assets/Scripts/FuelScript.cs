@@ -16,7 +16,7 @@ public class FuelScript : MonoBehaviour
     * Set variables and get the game objects and components we will use.
     */
     private void Start(){
-        fuel = 10;
+        fuel = 100;
         fueltTextObject = GameObject.Find(Constants.FUEL_TEXT);
         fuelText = fueltTextObject.GetComponent<Text>();
         rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
