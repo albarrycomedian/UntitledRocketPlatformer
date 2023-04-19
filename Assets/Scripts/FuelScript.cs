@@ -16,10 +16,10 @@ public class FuelScript : MonoBehaviour
     * Set variables and get the game objects and components we will use.
     */
     private void Start(){
-        fuel = 100;
+        fuel = 10;
         fueltTextObject = GameObject.Find(Constants.FUEL_TEXT);
-        rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
         fuelText = fueltTextObject.GetComponent<Text>();
+        rocket = GameObject.FindWithTag(Constants.ROCKET_TAG);
     }
 
     /**
@@ -39,6 +39,7 @@ public class FuelScript : MonoBehaviour
             if (fuel > 0){
                 fuel -= decrementSpeed * Time.deltaTime;
             } else if (fuel <= 0){
+                rocket.GetComponent<AudioProcessor>().stopAudioAndSetDisableAudioTrue();
                 rocket.GetComponent<Movement>().SetDisableMovementTrue();
                 fuel = 0; // Fuel shouldn't be lower then zero.
             }
