@@ -73,6 +73,7 @@ public class LivesScript : MonoBehaviour
             child = gameObject.transform.GetChild(i).gameObject;
             if(child.transform.childCount > 0){
                 ExplodeRocket(child);
+                child.AddComponent<Rigidbody>();
             } else {
                 child.AddComponent<Rigidbody>();
             }
